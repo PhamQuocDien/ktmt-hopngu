@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mindmap ôn giữa kỳ – Kiến trúc máy tính & Hợp ngữ (Buổi 1–9)</title>
+<style>
+:root{--bg:#0b1020;--panel:#121a2e;--panel2:#17233b;--ink:#ecf3ff;--muted:#a7b5cd;--line:#2b3b59;--cyan:#55d6e8;--blue:#79a9ff;--green:#76d6a2;--yellow:#ffd27d;--pink:#ff9db5;--purple:#b8a0ff;--shadow:0 16px 44px rgba(0,0,0,.25)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(1100px 700px at 15% -10%,#1d3358 0%,transparent 60%),radial-gradient(900px 600px at 100% 0%,#302754 0%,transparent 55%),var(--bg);color:var(--ink);font:15px/1.55 Inter,Segoe UI,Arial,sans-serif}button,input{font:inherit}button{cursor:pointer}.wrap{max-width:1440px;margin:auto;padding:24px}.hero{border:1px solid #314568;background:linear-gradient(125deg,rgba(23,46,78,.96),rgba(27,29,62,.96));border-radius:24px;padding:28px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(85,214,232,.08);right:-70px;top:-150px}.eyebrow{letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);font-size:11px;font-weight:800}.hero h1{font-size:clamp(26px,4vw,42px);line-height:1.12;margin:10px 0}.hero p{color:#c4d3e9;max-width:900px;margin:10px 0 0}.hero-row{display:flex;gap:20px;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;position:relative;z-index:1}.exam{min-width:210px;border:1px solid #476487;background:rgba(6,16,33,.35);border-radius:16px;padding:14px 18px}.exam b{display:block;color:#fff;font-size:18px}.exam span{font-size:12px;color:#bbcae0}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.pill{border:1px solid #3d5577;background:#152641;color:#d7e5fa;padding:5px 10px;border-radius:99px;font-size:12px}.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:18px 0}.toolbar button,.tab{border:1px solid var(--line);background:#121d33;color:var(--ink);padding:10px 14px;border-radius:12px}.toolbar button:hover,.tab:hover{border-color:var(--cyan)}.toolbar .primary{background:linear-gradient(120deg,#167d98,#3156a5);border-color:#4aacc3}.search{flex:1;min-width:230px;position:relative}.search input{width:100%;background:#101a2d;border:1px solid var(--line);border-radius:12px;padding:11px 14px 11px 40px;color:var(--ink);outline:none}.search input:focus{border-color:var(--cyan)}.search:before{content:"⌕";position:absolute;left:14px;top:4px;color:var(--cyan);font-size:26px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 20px}.tab{font-weight:700}.tab.active{background:#1e5572;border-color:#5cd6e7;color:white}.view{display:none}.view.active{display:block}.overview{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px}.root-card{grid-column:1/-1;display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;border:1px solid #4f779c;background:linear-gradient(110deg,#163957,#28264f);border-radius:18px;position:relative}.root-card strong{font-size:20px}.root-card small{display:block;color:#c0d1e7;margin-top:3px}.branches{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.branch{border:1px solid var(--line);background:rgba(18,26,46,.9);border-radius:17px;padding:14px;min-height:126px;position:relative;box-shadow:0 8px 22px rgba(0,0,0,.12)}.branch:before{content:"";position:absolute;top:0;left:14px;right:14px;height:3px;border-radius:5px;background:var(--accent)}.branch .num{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:800}.branch h3{margin:7px 0 5px;font-size:17px}.branch p{margin:0;color:var(--muted);font-size:13px}.section-title{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin:24px 0 12px}.section-title h2{font-size:23px;margin:0}.section-title p{margin:0;color:var(--muted);font-size:13px}.session-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.session{border:1px solid var(--line);background:linear-gradient(145deg,rgba(18,27,48,.98),rgba(16,24,42,.98));border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.14)}.session[hidden]{display:none}.session summary{cursor:pointer;list-style:none;padding:16px 18px;display:flex;align-items:center;gap:12px}.session summary::-webkit-details-marker{display:none}.session summary:after{content:"＋";margin-left:auto;color:var(--accent);font-size:19px;font-weight:700}.session[open] summary:after{content:"−"}.session summary:hover{background:rgba(255,255,255,.025)}.badge-num{display:grid;place-items:center;min-width:38px;height:38px;border-radius:12px;background:color-mix(in srgb,var(--accent) 18%,transparent);color:var(--accent);font-weight:900}.session-head{min-width:0}.session-head b{display:block;font-size:16px}.session-head small{display:block;color:var(--muted);font-size:12px}.content{padding:0 18px 18px 68px;color:#dce7f6}.content h4{margin:12px 0 4px;color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:.04em}.content ul{margin:5px 0 10px;padding-left:19px}.content li{margin:3px 0}.content .note{border-left:3px solid var(--accent);background:rgba(255,255,255,.035);padding:9px 11px;border-radius:0 9px 9px 0;color:#d7e4f4;margin-top:9px;font-size:13px}.tag{display:inline-block;border:1px solid #3b506d;background:#15233a;color:#c8d9ee;padding:2px 7px;border-radius:6px;font-size:11px;margin:2px}.formula-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.formula{border:1px solid var(--line);background:#121c31;border-radius:14px;padding:15px}.formula h3{margin:0 0 7px;color:var(--cyan);font-size:14px}.math{font-family:Cambria,Georgia,serif;font-size:17px;color:white;background:#091321;border:1px solid #263c5c;padding:9px 11px;border-radius:9px;display:block;overflow-wrap:anywhere}.formula p{color:var(--muted);font-size:12px;margin:8px 0 0}.compare{width:100%;border-collapse:collapse;margin:8px 0 12px;font-size:13px}.compare th,.compare td{border:1px solid #344765;padding:7px 8px;vertical-align:top;text-align:left}.compare th{background:#1c2c48;color:#eaf4ff}.compare td{background:rgba(255,255,255,.02)}.compare tr:nth-child(even) td{background:rgba(255,255,255,.045)}.callout{border:1px solid #705d37;background:rgba(255,210,125,.08);padding:13px 15px;border-radius:13px;color:#f7e8c8;margin:14px 0}.callout strong{color:var(--yellow)}.danger{border-color:#74465a;background:rgba(255,157,181,.08);color:#ffdae3}.good{border-color:#356e59;background:rgba(118,214,162,.08);color:#d6ffea}.a4-intro{color:var(--muted);font-size:13px;margin:0 0 14px}.footer{color:#8293ad;font-size:11px;margin:28px 0 5px;text-align:center}.hidden{display:none!important}.print-sheet{display:none}
+/* printable A4, duplex: one sheet, two sides */
+@page{size:A4;margin:7mm}
+@media print{
+  body{background:white!important;color:#111!important;font-family:Arial,sans-serif!important}
+  .wrap,.hero,.toolbar,.tabs,.view,.footer{display:none!important}
+  .print-sheet{display:block!important}
+  .a4page{width:196mm;height:283mm;page-break-after:always;break-after:page;overflow:hidden;color:#111;background:#fff;font-family:Arial,sans-serif;padding:0}
+  .a4page:last-child{page-break-after:auto;break-after:auto}
+  .a4head{border-bottom:1.4pt solid #111;padding-bottom:2mm;margin-bottom:2mm;display:flex;justify-content:space-between;align-items:end}
+  .a4head h1{font-size:14pt;margin:0;line-height:1.1}.a4head span{font-size:7pt;font-weight:bold}
+  .a4cols{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+  .a4box{border:.55pt solid #555;padding:1.7mm 2mm;margin-bottom:2mm;break-inside:avoid}
+  .a4box h2{font-size:8.5pt;margin:0 0 1mm;background:#e8edf2;padding:1mm 1.3mm;border-left:2.5pt solid #333}
+  .a4box h3{font-size:7.4pt;margin:1.2mm 0 .5mm}
+  .a4box p,.a4box li{font-size:6.8pt;line-height:1.22;margin:.4mm 0}
+  .a4box ul{margin:.5mm 0 .8mm;padding-left:3.5mm}
+  .a4box .tiny{font-size:6.2pt}.a4box b{font-weight:700}
+  .a4formula{font-size:7pt;line-height:1.32;background:#f2f4f6;padding:1.2mm;margin:.7mm 0;font-family:Arial,sans-serif}
+  .a4table{border-collapse:collapse;width:100%;font-size:6.3pt;margin:.6mm 0}.a4table th,.a4table td{border:.4pt solid #666;padding:.6mm .8mm;vertical-align:top}
+  .a4table th{background:#e8edf2}
+  .a4foot{font-size:6pt;text-align:right;color:#555;border-top:.5pt solid #777;margin-top:1mm;padding-top:1mm}
+}
+@media(max-width:1000px){.branches{grid-template-columns:repeat(2,1fr)}.formula-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.wrap{padding:13px}.overview{grid-template-columns:1fr}.branches{grid-template-columns:1fr 1fr}.session-grid{grid-template-columns:1fr}.formula-grid{grid-template-columns:1fr}.content{padding-left:18px}.hero{padding:21px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="hero-row">
+      <div>
+        <div class="eyebrow">LearnHub · HCMUTE · Ôn tập giữa kỳ lần 1</div>
+        <h1>SƠ ĐỒ TƯ DUY<br>KIẾN TRÚC MÁY TÍNH & HỢP NGỮ</h1>
+        <p>Hệ thống kiến thức Buổi 01–09 theo từng nhánh: nhập môn → hiệu năng → chu kỳ lệnh & bus → bộ nhớ → CPU → biểu diễn dữ liệu. Tiếng Việt là chính, giữ thuật ngữ tiếng Anh để nhận diện trong đề thi.</p>
+        <div class="pills"><span class="pill">Buổi 01–09</span><span class="pill">Chapter 00–05</span><span class="pill">Sơ đồ tương tác</span><span class="pill">Tờ A4 hai mặt</span></div>
+      </div>
+      <div class="exam"><span>NGÀY KIỂM TRA</span><b>Thứ Tư · 25/11/2026</b><span>Giữa kỳ lần 1 · Phạm vi bạn cung cấp: Buổi 1–9</span></div>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="search"><input id="searchBox" type="search" placeholder="Tìm nhanh: Amdahl, CPI, Cache, QPI, EFLAGS, IEEE 754..." aria-label="Tìm kiến thức"></div>
+    <button id="expandAll">Mở tất cả nhánh</button>
+    <button id="collapseAll">Thu gọn</button>
+    <button class="primary" onclick="window.print()">In tờ A4 hai mặt ↗</button>
+  </div>
+  <nav class="tabs" aria-label="Các khu vực">
+    <button class="tab active" data-tab="mind">Sơ đồ tư duy</button>
+    <button class="tab" data-tab="formula">Công thức & bảng so sánh</button>
+    <button class="tab" data-tab="focus">Điểm dễ nhầm / trọng tâm</button>
+    <button class="tab" data-tab="a4">Xem trước tờ A4</button>
+  </nav>
+
+  <section id="mind" class="view active">
+    <div class="overview">
+      <div class="root-card"><div><div class="eyebrow">TRUNG TÂM KIẾN THỨC</div><strong>COMPUTER ARCHITECTURE & ASSEMBLY LANGUAGE</strong><small>9 buổi · 5 chương chính + Chapter 00 nhập môn</small></div></div>
+    </div>
+    <div class="branches">
+      <div class="branch" style="--accent:var(--cyan)"><div class="num">B1 · Chapter 00</div><h3>Nhập môn & IAS</h3><p>Organization/Architecture · Structure/Function · chức năng · Stored-program</p></div>
+      <div class="branch" style="--accent:var(--blue)"><div class="num">B2 · Chapter 01</div><h3>Lịch sử & Hiệu năng</h3><p>Moore · Memory Wall · kỹ thuật tăng tốc · Iron Law · MIPS · Amdahl</p></div>
+      <div class="branch" style="--accent:var(--purple)"><div class="num">B3–B4 · Chapter 02</div><h3>Computer Function & Bus</h3><p>Instruction Cycle · Interrupt · I/O · Bus hierarchy · QPI · PCIe</p></div>
+      <div class="branch" style="--accent:var(--green)"><div class="num">B5–B7 · Chapter 03</div><h3>Computer Memory</h3><p>Hierarchy · Cache · Mapping · SRAM/DRAM · Disk · RAID · SSD · Optical</p></div>
+      <div class="branch" style="--accent:var(--yellow)"><div class="num">B8 · Chapter 04</div><h3>CPU & Registers</h3><p>User-visible/control registers · x86/x64 · instruction · segmentation</p></div>
+      <div class="branch" style="--accent:var(--pink)"><div class="num">B9 · Chapter 05</div><h3>Data Representation</h3><p>Binary · Signed · Integer/String/Float · IEEE 754 · Endian · GDB</p></div>
+    </div>
+
+    <div class="section-title"><h2>Nhánh kiến thức chi tiết</h2><p>Nhấn từng buổi để mở các nhánh con · dùng ô tìm kiếm để lọc nhanh</p></div>
+    <div id="sessions" class="session-grid">
+      <details class="session" open style="--accent:var(--cyan)" data-search="buổi 1 chapter 00 introduction computer organization architecture structure function components cpu main memory io system interconnection abstraction multi-level machine von neumann IAS stored program">
+        <summary><span class="badge-num">01</span><span class="session-head"><b>Introduction & Computer Organization</b><small>Chapter 00 · Nền tảng kiến trúc máy tính</small></span></summary>
+        <div class="content">
+          <h4>1. Organization vs Architecture</h4>
+          <ul><li><b>Computer Architecture:</b> thuộc tính nhìn từ phía lập trình viên — tập lệnh (ISA), kiểu dữ liệu/độ rộng bit, cơ chế I/O, phương pháp định địa chỉ.</li><li><b>Computer Organization:</b> cách các thành phần vật lý được triển khai và phối hợp — mạch, tín hiệu điều khiển, chân chip, bus, vi kiến trúc.</li><li><b>Microarchitecture:</b> cách hiện thực ISA ở mức tổ chức phần cứng bên trong.</li></ul>
+          <h4>2. Structure & Function</h4><ul><li><b>Structure:</b> cách các thành phần liên kết với nhau.</li><li><b>Function:</b> hoạt động/chức năng của từng thành phần trong cấu trúc.</li></ul>
+          <h4>3. Structural components</h4><ul><li><b>CPU/Processor:</b> điều khiển hệ thống và xử lý dữ liệu.</li><li><b>Main Memory:</b> lưu lệnh và dữ liệu đang dùng.</li><li><b>I/O:</b> giao tiếp với môi trường bên ngoài.</li><li><b>System Interconnection:</b> đường giao tiếp CPU–Memory–I/O.</li></ul>
+          <h4>4. Functional view</h4><ul><li><b>Data Processing</b> – xử lý dữ liệu; <b>Data Storage</b> – lưu trữ; <b>Data Movement</b> – di chuyển; <b>Control</b> – điều khiển.</li></ul>
+          <h4>5. Computer abstraction / Multi-level machine</h4><p>Ứng dụng → ngôn ngữ cấp cao → Compiler → Assembly → Assembler → OS/ISA → Microarchitecture → Digital circuits/Physical devices. Mỗi tầng che giấu chi tiết tầng thấp hơn.</p>
+          <h4>6. Von Neumann / IAS – Stored-program concept</h4><ul><li>Lệnh và dữ liệu cùng nằm trong một bộ nhớ đọc/ghi.</li><li>Bộ nhớ được truy cập theo địa chỉ, không phụ thuộc kiểu dữ liệu.</li><li>Thực thi tuần tự, trừ khi lệnh điều khiển luồng làm thay đổi thứ tự.</li><li>IAS: 1.000 từ nhớ × 40 bit; một từ có thể chứa hai lệnh 20 bit; mỗi lệnh = Opcode 8 bit + Address 12 bit.</li></ul>
+          <div class="note"><b>IAS registers:</b> PC = địa chỉ cặp lệnh tiếp theo; MAR = địa chỉ ô nhớ; MBR = từ dữ liệu/lệnh trao đổi; IR = opcode; IBR = giữ lệnh phải; AC = accumulator; MQ = multiplier-quotient.</div>
+        </div>
+      </details>
+
+      <details class="session" style="--accent:var(--blue)" data-search="buổi 2 chapter 1 computer evolution generations intel processors moore law memory wall pipelining branch prediction speculative execution data flow analysis performance balance multicore MIC GPGPU active static power CPI MIPS execution time amdahl">
+        <summary><span class="badge-num">02</span><span class="session-head"><b>Computer Evolution & Designing for Performance</b><small>Chapter 01 · Lịch sử, cân bằng và đánh giá hiệu năng</small></span></summary>
+        <div class="content">
+          <h4>1. Evolution of computer history</h4><ul><li><b>Generation 1:</b> Vacuum tubes – kích thước lớn, công suất cao; ví dụ ENIAC.</li><li><b>Generation 2:</b> Transistors – nhỏ hơn, tin cậy và hiệu quả hơn.</li><li><b>Generation 3:</b> Integrated Circuits (IC).</li><li><b>Generation 4:</b> Microprocessors/VLSI – CPU tích hợp trên chip; PC và hệ thống hiện đại.</li><li>Tiếp theo: đa lõi, MICs/GPGPUs, hệ thống nhúng; theo dõi tiến hóa Intel x86, ARM.</li></ul>
+          <h4>2. Moore’s Law & Memory Wall</h4><ul><li><b>Moore’s Law:</b> mật độ/transistor trên chip tăng theo xu hướng hàm mũ theo thời gian.</li><li><b>Memory Wall:</b> tốc độ CPU tăng nhanh hơn khả năng đáp ứng của bộ nhớ; CPU có thể phải chờ dữ liệu.</li></ul>
+          <h4>3. Microprocessor speed techniques</h4><ul><li><b>Pipelining:</b> chồng lấp các giai đoạn của nhiều lệnh để tăng thông lượng (throughput); không đồng nghĩa một lệnh đơn luôn ngắn hơn.</li><li><b>Branch Prediction:</b> dự đoán nhánh sẽ đi theo hướng nào.</li><li><b>Speculative Execution:</b> thực thi trước theo dự đoán; nếu sai thì loại bỏ kết quả sai/khôi phục trạng thái phù hợp.</li><li><b>Dataflow analysis:</b> phân tích phụ thuộc dữ liệu; lệnh có toán hạng sẵn sàng có thể được thực thi.</li></ul>
+          <h4>4. Performance balance</h4><ul><li>Cân bằng Processor ↔ Memory ↔ I/O ↔ Interconnect; một thành phần chậm có thể thành bottleneck.</li><li>Giảm nghẽn CPU–Memory: DRAM rộng hơn/bus dữ liệu rộng hơn; dùng cache nhiều cấp và gần CPU; tăng băng thông interconnect.</li></ul>
+          <h4>5. Performance assessment</h4><ul><li><b>Active/Dynamic power:</b> công suất khi mạch chuyển trạng thái/hoạt động.</li><li><b>Static power:</b> công suất rò/leakage khi mạch vẫn được cấp nguồn.</li><li><b>Benchmark suite:</b> tập chương trình chuẩn để so sánh hệ thống.</li><li><b>Clock rate</b> và <b>CPI</b> phải xem cùng Instruction Count; tăng GHz không tự động bảo đảm chương trình chạy nhanh hơn.</li></ul>
+          <div class="note"><b>Iron Law:</b> CPU time = Instruction Count × Average CPI × Clock Cycle Time = IC × CPI / Clock Rate.</div>
+          <div class="note"><b>MIPS:</b> Million Instructions Per Second = IC / (Execution time × 10⁶) = Clock rate / (CPI × 10⁶), khi đơn vị phù hợp. MIPS không luôn là cách so sánh công bằng giữa ISA/chương trình khác nhau.</div>
+          <div class="note"><b>Amdahl:</b> Speedup = 1 / [(1 − P) + P/S], với P là phần được cải tiến, S là speedup của phần đó. Giới hạn khi S→∞: 1/(1−P).</div>
+        </div>
+      </details>
+
+      <details class="session" style="--accent:var(--purple)" data-search="buổi 3 chapter 2 instruction cycle fetch indirect execute interrupt polling ISR interrupt handling interrupt types sequential nested PC MAR MBR IR IAS">
+        <summary><span class="badge-num">03</span><span class="session-head"><b>Instruction Cycle & Interrupts</b><small>Chapter 02 · Chu kỳ lệnh, Polling và ngắt</small></span></summary>
+        <div class="content">
+          <h4>1. Computer function</h4><p>Thực thi chương trình là lặp lại quá trình lấy lệnh và thực thi lệnh; lệnh được nạp vào Instruction Register (IR).</p>
+          <h4>2. Instruction Cycle</h4><ul><li><b>Fetch:</b> lấy lệnh từ bộ nhớ vào IR; PC chỉ vị trí lệnh tiếp theo.</li><li><b>Decode:</b> giải mã Opcode để biết thao tác.</li><li><b>Indirect cycle:</b> chỉ khi cần lấy địa chỉ toán hạng gián tiếp.</li><li><b>Execute:</b> thực thi thao tác, có thể lấy toán hạng, tính toán, ghi kết quả hoặc đổi PC.</li><li><b>Interrupt check/cycle:</b> kiểm tra và xử lý ngắt nếu đang chờ và được cho phép; sau đó quay lại lệnh tiếp theo.</li></ul>
+          <p><b>State labels:</b> IAC (Instruction Address Calculation), IF (Instruction Fetch), IOD (Instruction Operation Decode), OAC (Operand Address Calculation), OF (Operand Fetch), DO (Data Operation), OS (Operand Store), IC (Interrupt Check).</p>
+          <h4>3. Polling vs Interrupt</h4><table class="compare"><tr><th>Polling</th><th>Interrupt</th></tr><tr><td>CPU chủ động hỏi/kiểm tra trạng thái thiết bị theo chu kỳ.</td><td>Thiết bị/controller báo CPU khi cần phục vụ.</td></tr><tr><td>Đơn giản, có thể tốn CPU khi không có việc.</td><td>Giảm busy waiting; cần cơ chế lưu trạng thái/ưu tiên.</td></tr><tr><td>Command-ready/status bit.</td><td>Interrupt-request line (IRQ).</td></tr></table>
+          <h4>4. Interrupt handling</h4><p>IRQ → CPU nhận biết (thường sau khi hoàn tất lệnh hiện tại) → Save context (PC/flags và thanh ghi cần thiết) → lấy địa chỉ ISR từ vector → chạy ISR → restore context → return (IRET/RETI tùy kiến trúc).</p>
+          <p><b>Interrupt types trong slide:</b> Program/software exception (overflow, divide by zero, illegal instruction); Timer (hardware); I/O (hardware); Hardware failure (hardware).</p>
+          <h4>5. Multiple interrupts</h4><ul><li><b>Sequential:</b> xử lý ISR lần lượt; ISR hiện tại xong rồi mới nhận ISR tiếp theo theo chính sách.</li><li><b>Nested:</b> ISR ưu tiên cao có thể chen vào ISR ưu tiên thấp; phải lưu/khôi phục nhiều lớp trạng thái.</li></ul>
+          <div class="note"><b>Nhớ:</b> Interrupt không làm mất chương trình chính; CPU lưu trạng thái để quay lại. Polling = CPU hỏi; Interrupt = thiết bị báo.</div>
+        </div>
+      </details>
+
+      <details class="session" style="--accent:var(--purple)" data-search="buổi 4 chapter 2 interconnection structures memory module IO module processor module bus structure data address control bus hierarchy arbitration synchronous asynchronous qpi pcie lane">
+        <summary><span class="badge-num">04</span><span class="session-head"><b>Computer Interconnection & Bus Architecture</b><small>Chapter 02 · Các module, Bus và liên kết điểm-điểm</small></span></summary>
+        <div class="content">
+          <h4>1. Interconnection structures</h4><p>Computer là mạng các module cơ bản; tập hợp đường kết nối giữa module gọi là <b>Interconnection Structure</b>.</p>
+          <ul><li><b>Memory module:</b> N từ có cùng độ dài; địa chỉ duy nhất 0…N−1; đọc/ghi từ dữ liệu.</li><li><b>I/O module:</b> giao tiếp thiết bị; có thể gửi tín hiệu ngắt đến processor.</li><li><b>Processor:</b> đọc lệnh/dữ liệu, xử lý, ghi dữ liệu và phát tín hiệu điều khiển; nhận interrupt.</li></ul>
+          <h4>2. Bus structure & bus types</h4><ul><li><b>Data Bus:</b> truyền dữ liệu.</li><li><b>Address Bus:</b> xác định địa chỉ nguồn/đích; độ rộng liên quan không gian địa chỉ.</li><li><b>Control Bus:</b> tín hiệu điều khiển/trạng thái như Read, Write, Interrupt, Clock.</li><li><b>Bus hierarchy:</b> nhiều cấp bus giúp đáp ứng chênh lệch tốc độ và loại thiết bị.</li><li><b>Bus arbitration:</b> quyết định thiết bị nào được quyền dùng bus khi tranh chấp.</li><li><b>Synchronous timing:</b> đồng bộ theo clock; <b>Asynchronous timing:</b> phối hợp bằng handshaking/tín hiệu bắt tay.</li></ul>
+          <h4>3. Bus vs Point-to-Point</h4><ul><li><b>Shared bus:</b> nhiều thiết bị dùng chung đường truyền; đơn giản nhưng có tranh chấp/bottleneck.</li><li><b>Point-to-point:</b> liên kết riêng giữa hai đầu; tăng băng thông và giảm chia sẻ đường truyền.</li></ul>
+          <h4>4. Intel QPI & PCI Express</h4><ul><li><b>QPI (QuickPath Interconnect):</b> liên kết point-to-point tốc độ cao; có truyền hai chiều; slide minh họa 3.2 GHz, 2 lần truyền/chu kỳ → 6.4 GT/s và 12.8 GB/s mỗi hướng (mức lý thuyết của ví dụ).</li><li><b>PCIe:</b> liên kết nối tiếp point-to-point; dùng Lane (các cặp đường truyền); có thể ghép x1, x4, x8, x16 để tăng băng thông. Phân biệt tốc độ mỗi lane và tổng lane.</li></ul>
+          <div class="note"><b>Điểm thi:</b> nhận diện Data/Address/Control bus; phân biệt synchronous/asynchronous; shared bus/point-to-point; nắm QPI transfer rate theo ví dụ slide.</div>
+        </div>
+      </details>
+
+      <details class="session" style="--accent:var(--green)" data-search="buổi 5 chapter 3 computer memory overview hierarchy key characteristics design constraints locality temporal spatial sequential cache hit miss cache basics L1 L2">
+        <summary><span class="badge-num">05</span><span class="session-head"><b>Memory Hierarchy & Cache Principles</b><small>Chapter 03 · Tổng quan bộ nhớ, tính cục bộ và Cache</small></span></summary>
+        <div class="content">
+          <h4>1. Memory characteristics / design constraints</h4><ul><li>Đặc tính thường xét: vị trí (location), dung lượng (capacity), đơn vị truyền, phương pháp truy cập, hiệu năng (access time/cycle time/transfer rate), công nghệ và tính chất vật lý.</li><li>Ba ràng buộc: <b>How much?</b> (capacity), <b>How fast?</b> (access time), <b>How expensive?</b> (cost).</li><li>Fast access → cost/bit cao; capacity lớn → cost/bit thấp và thường access time chậm hơn.</li></ul>
+          <h4>2. Memory hierarchy</h4><p>Registers → Cache (L1/L2/L3) → Main Memory (DRAM) → Secondary storage (SSD/HDD) → Optical/removable/archive.</p><ul><li>Đi xuống hierarchy: cost/bit giảm; capacity tăng; access time tăng; tần suất CPU truy cập trực tiếp giảm.</li></ul>
+          <h4>3. Locality of reference</h4><ul><li><b>Temporal:</b> dữ liệu/lệnh vừa dùng có khả năng được dùng lại sớm.</li><li><b>Spatial:</b> địa chỉ gần nhau có xu hướng được truy cập.</li><li><b>Sequential:</b> lệnh thường được lấy theo thứ tự liên tiếp.</li></ul>
+          <h4>4. Cache basics</h4><ul><li>Cache nhỏ và nhanh hơn Main Memory; lưu bản sao các block được dùng gần đây/được dự đoán sẽ dùng.</li><li><b>Hit:</b> yêu cầu được phục vụ từ Cache. <b>Miss:</b> không có block, cần lấy từ cấp dưới và nạp vào Cache.</li><li>L1 gần CPU, rất nhanh/nhỏ; L2 lớn hơn; có thể có L3.</li></ul>
+          <div class="note"><b>Hit ratio</b> = số Cache hits / tổng số yêu cầu. <b>Miss ratio</b> = số Cache misses / tổng số yêu cầu = 1 − Hit ratio.</div>
+        </div>
+      </details>
+
+      <details class="session" style="--accent:var(--green)" data-search="buổi 6 chapter 3 cache mapping direct mapped associative set associative tag index offset replacement policy LRU FIFO write through write back cache block line">
+        <summary><span class="badge-num">06</span><span class="session-head"><b>Cache Mapping & Cache Policies</b><small>Chapter 03 · Ánh xạ, thay thế và chính sách ghi</small></span></summary>
+        <div class="content">
+          <h4>1. Ba Cache mapping schemes</h4><table class="compare"><tr><th>Kiểu ánh xạ</th><th>Quy tắc</th><th>Ưu/nhược</th></tr><tr><td><b>Direct mapped</b></td><td>Mỗi Main Memory block chỉ đến đúng một cache line. Line = Block number mod Number of lines.</td><td>Đơn giản, rẻ; xung đột nhiều block cùng line gây thrashing.</td></tr><tr><td><b>Fully associative</b></td><td>Một block có thể đặt ở bất kỳ cache line nào.</td><td>Linh hoạt/hit potential tốt; cần so tag nhiều line, phần cứng phức tạp.</td></tr><tr><td><b>Set-associative</b></td><td>Block ánh xạ đến một set; trong set có thể chọn một line. Set = Block number mod Number of sets.</td><td>Cân bằng giữa direct và fully associative; thay thế trong set.</td></tr></table>
+          <h4>2. Address fields</h4><ul><li><b>Offset/Word:</b> chọn byte/word trong block; nếu block có B byte → offset bits = log₂B.</li><li><b>Index/Line:</b> chọn line (direct) hoặc set (set-associative).</li><li><b>Tag:</b> xác nhận block nào đang nằm tại line/set.</li><li>Với địa chỉ byte: offset bits = log₂(block size); index bits = log₂(lines hoặc sets); tag = address bits − index − offset.</li></ul>
+          <h4>3. Replacement policy</h4><p>Khi set/Cache không còn chỗ, chọn block victim để thay. Các ví dụ thường gặp: LRU (ít dùng gần đây nhất), FIFO (vào trước ra trước), Random. Áp dụng theo quy tắc cụ thể mà đề cho.</p>
+          <h4>4. Cache write policy</h4><ul><li><b>Write-through:</b> ghi đồng thời Cache và Main Memory; đơn giản, nhất quán hơn nhưng tăng traffic ghi.</li><li><b>Write-back:</b> chỉ ghi xuống Main Memory khi block bị đẩy ra; giảm traffic, cần theo dõi dirty/modified bit.</li></ul>
+          <div class="note"><b>Thứ tự giải bài mapping:</b> xác định block size → số lines/sets → tách Offset, Index/Set, Tag → tìm line/set → so Tag để kết luận Hit/Miss → nếu Miss thì chọn victim theo policy.</div>
+        </div>
+      </details>
+
+      <details class="session" style="--accent:var(--green)" data-search="buổi 7 chapter 3 internal memory external memory SRAM DRAM ROM PROM EPROM EEPROM flash magnetic disk seek time rotational latency access time transfer RAID SSD optical CD DVD">
+        <summary><span class="badge-num">07</span><span class="session-head"><b>Internal Memory & External Memory</b><small>Chapter 03 · Bán dẫn, đĩa từ, RAID, SSD và Optical</small></span></summary>
+        <div class="content">
+          <h4>1. Semiconductor memory</h4><ul><li>Memory cell có hai trạng thái ổn định biểu diễn 0/1; hỗ trợ ghi và đọc.</li><li><b>SRAM:</b> lưu bằng flip-flop/logic; không cần refresh khi có nguồn; nhanh, đắt, cell lớn; thường dùng Cache.</li><li><b>DRAM:</b> lưu điện tích tụ điện; cần refresh định kỳ; cell nhỏ, rẻ/dung lượng cao hơn; thường dùng Main Memory.</li><li>Cả SRAM và DRAM đều <b>volatile</b> – mất dữ liệu khi mất điện.</li></ul>
+          <h4>2. ROM family</h4><ul><li><b>ROM:</b> non-volatile; dữ liệu cố định.</li><li><b>PROM:</b> lập trình được một lần.</li><li><b>EPROM:</b> xóa bằng tia UV rồi ghi lại.</li><li><b>EEPROM:</b> xóa/ghi bằng điện, có thể cập nhật từng nội dung.</li><li><b>Flash:</b> một dạng EEPROM, xóa theo khối và nhanh hơn trong cách dùng lưu trữ.</li></ul>
+          <h4>3. Magnetic disk (HDD)</h4><p>Đĩa platter phủ vật liệu từ; đầu đọc/ghi (head); dữ liệu trên mặt đĩa được tổ chức thành <b>tracks</b>, chia <b>sectors</b>; các track cùng vị trí trên nhiều mặt đĩa tạo thành <b>cylinder</b>.</p>
+          <ul><li><b>Seek time:</b> thời gian di chuyển đầu đọc đến track.</li><li><b>Rotational latency:</b> chờ sector quay đến đầu đọc (trung bình nửa vòng).</li><li><b>Transfer time:</b> thời gian truyền dữ liệu.</li><li><b>Access time:</b> tổng thời gian định vị + chờ quay + truyền (có thể cộng controller overhead nếu bài cho).</li></ul>
+          <h4>4. RAID / SSD / Optical</h4><ul><li><b>RAID:</b> ghép nhiều disk thành array để tăng performance và/hoặc reliability/redundancy; phân biệt mục tiêu từng level theo slide.</li><li><b>SSD:</b> Flash memory, không có bộ phận chuyển động; access latency thấp, IOPS cao, chống sốc tốt, ít ồn/ít điện hơn HDD; lưu ý write endurance, wear leveling, garbage collection/TRIM.</li><li><b>Optical:</b> CD-ROM (đọc), CD-R (ghi một lần), CD-RW (ghi/xóa lại), DVD.</li></ul>
+          <div class="note"><b>Chip capacity:</b> W × n bits (W words, mỗi word n bits). Ví dụ 1M × 8 = 8 Mbits = 1 MiB (nếu dùng M theo 2²⁰ trong bài tổ chức chip).</div>
+        </div>
+      </details>
+
+      <details class="session" style="--accent:var(--yellow)" data-search="buổi 8 chapter 4 cpu register organization user visible control status x86 x64 machine instruction elements opcode operand operation types flags segmentation real mode physical logical address segment registers addressing modes">
+        <summary><span class="badge-num">08</span><span class="session-head"><b>CPU Architecture, Registers & Addressing</b><small>Chapter 04 · CPU, thanh ghi, lệnh máy và phân đoạn</small></span></summary>
+        <div class="content">
+          <h4>1. CPU complexity / execution modes</h4><ul><li>Nguyên nhân phức tạp: multiple cores, multiple roles, protection/privilege, hardware priorities, generality, high speed.</li><li><b>Execution mode</b> quyết định lệnh nào hợp lệ, vùng nhớ được truy cập, functional units và privilege.</li><li>Mode change có thể tự động do hardware hoặc chủ động bởi chương trình/hệ điều hành.</li><li><b>Privilege & Protection:</b> OS cần quyền cao; ứng dụng chạy với quyền hạn chế.</li></ul>
+          <h4>2. Register organization</h4><ul><li><b>User-visible:</b> General-purpose, Data, Address (segment pointers/index/stack pointers), Condition codes/flags.</li><li><b>Control & Status:</b> PC/IP, IR, MAR, MBR, flags/status register.</li><li><b>x86 16-bit:</b> AX, BX, CX, DX; SP, BP, SI, DI; CS, DS, SS, ES; IP; FLAGS.</li><li><b>x86 32-bit:</b> EAX, EBX, ECX, EDX, ESP, EBP, ESI, EDI; EIP/EFLAGS; segment registers.</li><li><b>x64:</b> RAX, RBX, RCX, RDX, RSP, RBP, RSI, RDI, RIP, RFLAGS; mở rộng general-purpose registers (R8–R15).</li></ul>
+          <h4>3. Important flags</h4><ul><li><b>CF:</b> Carry – carry/borrow trong phép toán không dấu.</li><li><b>PF:</b> Parity; <b>AF:</b> Auxiliary carry; <b>ZF:</b> Zero; <b>SF:</b> Sign; <b>OF:</b> Signed overflow.</li><li><b>TF:</b> Trap/single-step; <b>IF:</b> Interrupt enable; <b>DF:</b> Direction for string operations.</li></ul>
+          <h4>4. Machine instruction</h4><p>Thành phần: Opcode/operation; vị trí lưu operand; số operand tường minh (0/1/2/3); vị trí operand; kiểu và kích thước operand. Operand: address, number, character, logical data.</p>
+          <table class="compare"><tr><th>Nhóm x86</th><th>Lệnh ví dụ</th></tr><tr><td>Data movement</td><td>MOV, PUSH, LEA, IN, OUT, MOVSX</td></tr><tr><td>Arithmetic</td><td>ADD, SUB, MUL, DIV, IDIV</td></tr><tr><td>Logical / Shift / Rotate</td><td>AND, OR, XOR, NOT, SHL, SHR, SAR, ROL, ROR</td></tr><tr><td>Control transfer</td><td>JMP, JE/JZ, CALL, LOOP</td></tr><tr><td>String</td><td>LODS, STOS, MOVS, SCAS</td></tr></table>
+          <h4>5. x86 Real Mode segmentation (8086/8088)</h4><ul><li>20-bit physical address space: 00000h–FFFFFh = 1 MiB; registers segment/offset 16-bit.</li><li><b>Logical address:</b> Segment:Offset.</li><li><b>Physical Address:</b> PA = Segment × 16 + Offset = (Segment &lt;&lt; 4) + Offset.</li><li>Segment starts at paragraph boundary (địa chỉ chia hết cho 16); segment length tối đa 64 KiB; nhiều cặp Segment:Offset có thể trỏ cùng Physical Address.</li><li><b>CS:IP</b> code/next instruction; <b>DS/ES:BX/SI/DI</b> data; <b>SS:SP</b> top of stack; <b>SS:BP</b> stack data/local variables.</li></ul>
+          <h4>6. Addressing modes</h4><p>Immediate (giá trị nằm trong lệnh); Direct (trường địa chỉ là EA); Indirect (địa chỉ trỏ đến ô nhớ chứa EA); Register; Register Indirect; Displacement/Relative/Indexed; Based-Indexed; Based-Indexed + Displacement; Stack.</p>
+          <div class="note"><b>Real-mode example:</b> 2A30h:1234h → PA = 2A30h×10h + 1234h = 2B534h. Đừng nhầm Logical address với Physical address.</div>
+        </div>
+      </details>
+
+      <details class="session" style="--accent:var(--pink)" data-search="buổi 9 chapter 5 data representation number system binary octal hexadecimal LSB MSB binary fraction signed binary ones complement twos complement range extension integer string floating point IEEE 754 endian memory layout GDB">
+        <summary><span class="badge-num">09</span><span class="session-head"><b>Number Systems & Data Representation</b><small>Chapter 05 · Số nguyên, chuỗi, số thực, Endian và GDB</small></span></summary>
+        <div class="content">
+          <h4>1. Number systems & binary fraction</h4><ul><li>Positional system: giá trị = tổng digit × radix^vị trí. Decimal base 10; Binary base 2; Octal base 8; Hexadecimal base 16 (A–F = 10–15).</li><li>Binary ↔ Octal: nhóm 3 bit; Binary ↔ Hex: nhóm 4 bit; số nguyên decimal → Binary bằng chia liên tiếp 2; phần thập phân → Binary bằng nhân liên tiếp 2.</li><li><b>MSB:</b> bit trọng số lớn nhất (trái); <b>LSB:</b> bit trọng số nhỏ nhất (phải).</li><li>Phần lẻ: vị trí sau dấu chấm có trọng số 2⁻¹, 2⁻², 2⁻³…</li></ul>
+          <h4>2. Signed integers</h4><ul><li><b>Unsigned n-bit:</b> 0…2ⁿ−1.</li><li><b>Signed magnitude:</b> 1 sign + magnitude; có +0 và −0.</li><li><b>One’s complement:</b> số âm = đảo bit số dương; có hai số 0.</li><li><b>Two’s complement:</b> đảo bit + 1; n-bit range = −2ⁿ⁻¹…2ⁿ⁻¹−1.</li><li><b>Sign extension:</b> lặp sign bit khi tăng độ rộng signed; <b>Zero extension:</b> thêm 0 bên trái cho unsigned.</li><li><b>Byte 8, Word 16, Doubleword 32, Quadword 64 bits.</b></li></ul>
+          <h4>3. Addition / strings</h4><ul><li>Unsigned overflow → xét <b>CF</b>; signed two’s complement overflow → xét <b>OF</b>. Hai cờ không đồng nghĩa.</li><li><b>String:</b> ký tự thường lưu theo ASCII; chuỗi C kết thúc bằng Null (0x00). "19653" = 5 ký tự + null = 6 byte; số 19653 lưu Word = 2 byte.</li></ul>
+          <h4>4. Floating-point / IEEE 754</h4><ul><li>Chuẩn hóa dạng <b>(−1)^S × 1.F × 2^e</b>; exponent lưu = e + Bias; mantissa/fraction bỏ hidden leading 1 với normal numbers.</li><li><b>Single 32-bit:</b> 1 Sign + 8 Exponent + 23 Fraction; Bias = 127.</li><li><b>Double 64-bit:</b> 1 Sign + 11 Exponent + 52 Fraction; Bias = 1023.</li><li>Exponent toàn 0: zero/subnormal; exponent toàn 1: infinity/NaN (tùy fraction).</li></ul>
+          <h4>5. Endian / memory layout / GDB</h4><ul><li><b>Little-endian:</b> LSB byte ở địa chỉ thấp nhất. <b>Big-endian:</b> MSB byte ở địa chỉ thấp nhất.</li><li><b>Text:</b> machine code; <b>Data:</b> dữ liệu global/static đã khởi tạo; <b>BSS:</b> global/static zero hoặc chưa khởi tạo tường minh; <b>Heap:</b> cấp phát động; <b>Stack:</b> call frame/local variables.</li><li>GDB: <code>break</code> đặt breakpoint; <code>run</code> chạy; <code>next</code> chạy dòng kế; <code>step</code> đi vào hàm; <code>continue</code> tiếp tục; <code>print</code> xem giá trị; <code>x/4xb</code> xem 4 byte hex.</li></ul>
+          <div class="note"><b>Điểm cần nhớ theo slide:</b> Octal là Base 8 (slide ghi Base 7 nhưng chính nó liệt kê chữ số 0–7); ví dụ e7 có nhãn độ rộng trường không khớp phép tính, không dùng nhãn sai làm quy tắc.</div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="formula" class="view">
+    <div class="section-title"><h2>Công thức cần thuộc / biết áp dụng</h2><p>Ưu tiên các phép tính có thể xuất hiện trong bài giữa kỳ</p></div>
+    <div class="formula-grid">
+      <div class="formula"><h3>1 · CPU Execution Time (Iron Law)</h3><span class="math">CPU time = IC × CPI × Tcycle</span><span class="math">CPU time = (IC × CPI) / Clock rate</span><p>IC = instruction count; CPI = cycles/instruction; Tcycle = 1/frequency.</p></div>
+      <div class="formula"><h3>2 · Average CPI</h3><span class="math">CPIavg = Σ(ICᵢ × CPIᵢ) / ΣICᵢ</span><p>Nếu đề cho tỷ lệ instruction: CPIavg = Σ(fractionᵢ × CPIᵢ).</p></div>
+      <div class="formula"><h3>3 · MIPS</h3><span class="math">MIPS = IC / (Execution time × 10⁶)</span><span class="math">MIPS = Clock rate / (CPI × 10⁶)</span><p>Đơn vị: triệu lệnh mỗi giây; lưu ý khi so sánh CPU/ISA khác nhau.</p></div>
+      <div class="formula"><h3>4 · Amdahl’s Law</h3><span class="math">Speedup = 1 / [(1−P) + P/S]</span><span class="math">Smax = 1 / (1−P)</span><p>P = phần chương trình được cải tiến; S = speedup phần đó.</p></div>
+      <div class="formula"><h3>5 · Cache ratios</h3><span class="math">Hit ratio = Hits / Total requests</span><span class="math">Miss ratio = Misses / Total = 1 − Hit ratio</span><p>Chú ý phân biệt Cache hit/miss với page hit/miss trong ngữ cảnh khác.</p></div>
+      <div class="formula"><h3>6 · Cache mapping</h3><span class="math">Direct line = Block no. mod Lines</span><span class="math">Set = Block no. mod Sets</span><p>Offset bits = log₂(block bytes); index bits = log₂(lines/sets); tag = address bits − index − offset.</p></div>
+      <div class="formula"><h3>7 · Disk performance</h3><span class="math">Access time ≈ Seek + Avg rotational latency + Transfer</span><span class="math">Avg latency = ½ rotation = 30/RPM seconds</span><p>Nếu đề cho controller overhead, cộng thêm vào tổng thời gian.</p></div>
+      <div class="formula"><h3>8 · Real Mode address</h3><span class="math">PA = Segment × 16 + Offset</span><p>Ví dụ 2A30h:1234h → 2A300h + 1234h = 2B534h. Địa chỉ vật lý 20-bit trong 8086/8088.</p></div>
+      <div class="formula"><h3>9 · Positional number</h3><span class="math">N = Σ dᵢ × rⁱ</span><p>Binary fraction: bên phải dấu chấm lần lượt ×2⁻¹, ×2⁻², ×2⁻³…</p></div>
+      <div class="formula"><h3>10 · Integer ranges</h3><span class="math">Unsigned n-bit: 0 … 2ⁿ−1</span><span class="math">Signed 2’s comp: −2ⁿ⁻¹ … 2ⁿ⁻¹−1</span><p>8-bit unsigned: 0–255; signed: −128–127. 16-bit signed: −32768–32767.</p></div>
+      <div class="formula"><h3>11 · IEEE 754</h3><span class="math">Value = (−1)^S × 1.F × 2^(E−Bias)</span><p>Single: Bias 127; Double: Bias 1023. Stored exponent E = e + Bias.</p></div>
+      <div class="formula"><h3>12 · QPI example (slide)</h3><span class="math">3.2 GHz × 2 transfers/clock = 6.4 GT/s</span><span class="math">6.4 GT/s × 16 bits ÷ 8 = 12.8 GB/s / direction</span><p>Đây là số liệu ví dụ QPI trong slide, không tổng quát cho mọi link.</p></div>
+    </div>
+    <div class="section-title"><h2>Bảng so sánh chốt nhanh</h2></div>
+    <table class="compare"><tr><th>Chủ đề</th><th>Phân biệt phải nhớ</th></tr>
+      <tr><td>Organization / Architecture</td><td>Organization = triển khai phần cứng; Architecture = thuộc tính nhìn từ programmer/ISA.</td></tr>
+      <tr><td>Polling / Interrupt</td><td>Polling: CPU hỏi liên tục/theo chu kỳ; Interrupt: thiết bị báo CPU.</td></tr>
+      <tr><td>Sequential / Nested interrupts</td><td>Sequential: xử lý lần lượt; Nested: ngắt ưu tiên cao chen vào ISR thấp hơn.</td></tr>
+      <tr><td>Direct / Associative / Set-associative</td><td>1 line cố định / bất kỳ line / một set rồi chọn line trong set.</td></tr>
+      <tr><td>SRAM / DRAM</td><td>SRAM: nhanh, FF, không refresh; DRAM: capacitor, refresh, rẻ/dày hơn.</td></tr>
+      <tr><td>ROM family</td><td>PROM: lập trình một lần; EPROM: UV erase; EEPROM: xóa điện; Flash: xóa theo khối.</td></tr>
+      <tr><td>HDD / SSD</td><td>HDD: platter/head, cơ học, seek/rotation; SSD: flash, không chuyển động, latency thấp.</td></tr>
+      <tr><td>CF / OF</td><td>CF: carry/borrow unsigned; OF: signed overflow. Có thể một cờ = 1 trong khi cờ kia = 0.</td></tr>
+      <tr><td>Little / Big endian</td><td>Little: byte thấp ở địa chỉ thấp; Big: byte cao ở địa chỉ thấp.</td></tr>
+      <tr><td>Data / BSS</td><td>Data: global/static khởi tạo khác 0; BSS: global/static zero/chưa khởi tạo tường minh.</td></tr>
+    </table>
+  </section>
+
+  <section id="focus" class="view">
+    <div class="section-title"><h2>Những chỗ dễ mất điểm</h2><p>Đọc nhanh trước khi vào phòng kiểm tra</p></div>
+    <div class="callout danger"><strong>1. Đừng đồng nhất CPI thấp với CPU luôn nhanh hơn.</strong><br>Execution time phụ thuộc đồng thời Instruction Count, Average CPI và Clock Cycle Time.</div>
+    <div class="callout danger"><strong>2. Pipelining không làm mọi lệnh đơn lẻ chạy nhanh hơn tương ứng số stage.</strong><br>Nó chủ yếu tăng throughput nhờ chồng lấp các giai đoạn; hazard/stall/branch penalty vẫn ảnh hưởng.</div>
+    <div class="callout danger"><strong>3. Polling khác Interrupt.</strong><br>Polling: CPU liên tục kiểm tra; Interrupt: phần cứng gửi yêu cầu, CPU xử lý theo cơ chế interrupt handling.</div>
+    <div class="callout danger"><strong>4. Direct mapping, Associative và Set-associative.</strong><br>Direct: chỉ một line; fully associative: bất cứ line; set-associative: một set cụ thể, nhiều line có thể chọn.</div>
+    <div class="callout danger"><strong>5. SRAM/DRAM và ROM family.</strong><br>SRAM không refresh; DRAM cần refresh. PROM một lần; EPROM tia UV; EEPROM/Flash xóa bằng điện (Flash theo block).</div>
+    <div class="callout danger"><strong>6. Seek, rotational latency, transfer time.</strong><br>Seek = di chuyển head; rotational = chờ sector; transfer = truyền dữ liệu; access time thường gồm ba thành phần trên.</div>
+    <div class="callout danger"><strong>7. Real-mode address.</strong><br>PA = Segment × 16 + Offset. Không cộng Segment và Offset trực tiếp; phải dịch Segment sang trái 4 bit.</div>
+    <div class="callout danger"><strong>8. Signed/Unsigned và CF/OF.</strong><br>Bit pattern giống nhau nhưng diễn giải khác nhau. CF là carry-out cho unsigned; OF là tràn signed.</div>
+    <div class="callout danger"><strong>9. IEEE 754.</strong><br>Single: 1|8|23, Bias 127. Double: 1|11|52, Bias 1023. Mantissa fraction của normalized number không lưu leading 1.
+    </div>
+    <div class="callout danger"><strong>10. Data vs BSS và String.</strong><br>Global initialized → Data; global zero/uninitialized → BSS; string có thêm Null terminator (nếu C string).</div>
+    <div class="callout good"><strong>11. Sửa lỗi đã phát hiện trong slide Chapter 05.</strong><br>Octal phải là Base 8 vì chữ số dùng là 0–7. Slide 37 ví dụ e7 có nhãn độ dài trường sai; phải căn cứ phép tính/cấu trúc thực tế đã học, không học thuộc nhãn lỗi. Giá trị 65530₁₀ = FFFAh, không phải FFF0h.</div>
+    <div class="section-title"><h2>Checklist ôn tập theo thứ tự</h2></div>
+    <ol>
+      <li>Đọc lại từng nhánh Buổi 1–9, ưu tiên các nhánh đang chưa nhớ.</li>
+      <li>Tự tính lại ít nhất một bài Iron Law, Amdahl, Cache mapping, Disk access time, Physical Address, Two’s Complement và IEEE 754.</li>
+      <li>Phân biệt các bảng so sánh, không chỉ học định nghĩa.</li>
+      <li>Đọc tờ A4 hai mặt để kiểm tra độ phủ kiến thức, sau đó tự viết lại các công thức từ trí nhớ.</li>
+    </ol>
+  </section>
+
+  <section id="a4" class="view">
+    <p class="a4-intro">Bản in được thiết kế thành một tờ A4 hai mặt (2 trang in: Mặt A và Mặt B). Nhấn “In tờ A4 hai mặt”, chọn khổ A4 và in hai mặt nếu máy in hỗ trợ; nếu không, in hai trang rồi lật giấy thủ công.</p>
+    <div class="formula-grid">
+      <div class="formula"><h3>Mặt A · Kiến trúc, hiệu năng, bus, bộ nhớ</h3><p>Chapter 00–03: khái niệm, IAS, Iron Law, Amdahl, Instruction Cycle, Bus, Hierarchy, Cache, SRAM/DRAM, Disk/SSD.</p></div>
+      <div class="formula"><h3>Mặt B · CPU & Data Representation</h3><p>Chapter 04–05: Register, Flags, x86 segmentation, addressing, base conversions, Two’s Complement, IEEE 754, Endian, Memory Layout, GDB.</p></div>
+    </div>
+    <button class="primary" onclick="window.print()" style="border:1px solid #4aacc3;background:linear-gradient(120deg,#167d98,#3156a5);color:#fff;padding:12px 18px;border-radius:12px;margin-top:8px">In tờ A4 hai mặt ↗</button>
+  </section>
+  <div class="footer">Tài liệu ôn tập cá nhân · Nội dung chính theo đề cương và tài liệu môn học HCMUTE Chapter 00–05; phần ghi chú bổ trợ được dùng để giải thích công thức và lỗi dễ nhầm.</div>
+</div>
+
+<!-- Printable one-sheet duplex cheat sheet -->
+<div class="print-sheet">
+  <article class="a4page">
+    <div class="a4head"><h1>KIẾN TRÚC MÁY TÍNH & HỢP NGỮ · ÔN GIỮA KỲ 1</h1><span>MẶT A · CHAPTER 00–03 · BUỔI 1–7</span></div>
+    <div class="a4cols">
+      <div>
+        <div class="a4box"><h2>B1 · NHẬP MÔN / IAS (CHAPTER 00)</h2>
+          <p><b>Architecture:</b> thuộc tính nhìn từ programmer: ISA, kiểu/độ rộng dữ liệu, I/O, addressing.</p>
+          <p><b>Organization:</b> triển khai phần cứng: mạch, tín hiệu, control, bus; microarchitecture hiện thực ISA.</p>
+          <p><b>Structure</b> = cách thành phần liên kết; <b>Function</b> = hoạt động của từng thành phần.</p>
+          <p><b>4 functions:</b> Data Processing · Data Storage · Data Movement · Control.</p>
+          <p><b>Components:</b> CPU · Main Memory · I/O · System Interconnection.</p>
+          <p><b>Abstraction:</b> Application → HLL → Compiler → Assembly → Assembler → OS/ISA → Microarchitecture → Digital circuits.</p>
+          <p><b>Von Neumann:</b> lệnh + dữ liệu chung một read/write memory; bộ nhớ addressable; execution tuần tự trừ khi đổi luồng.</p>
+          <p><b>IAS:</b> 1000 words × 40 bits; 1 word = 2 instructions × 20 bits; mỗi instruction = Opcode 8 + Address 12.</p>
+          <p><b>IAS registers:</b> PC (next instruction pair), MAR (memory address), MBR (word read/write), IR (opcode), IBR (right-hand instruction), AC (accumulator), MQ (multiplier-quotient).</p>
+        </div>
+        <div class="a4box"><h2>B2 · EVOLUTION & PERFORMANCE (CHAPTER 01)</h2>
+          <p><b>Generations:</b> Vacuum tube → Transistor → IC → Microprocessor/VLSI → multicore/GPU era. ENIAC = first general-purpose electronic digital computer (slide); IAS = stored-program prototype.</p>
+          <p><b>Moore’s Law:</b> transistor density tăng theo xu hướng hàm mũ. <b>Memory Wall:</b> CPU nhanh hơn độ đáp ứng/băng thông memory → chờ dữ liệu.</p>
+          <p><b>Speed techniques:</b> Pipelining = overlap stages; Branch Prediction = dự đoán nhánh; Speculative Execution = chạy trước theo dự đoán; Dataflow analysis = phụ thuộc/toán hạng sẵn sàng.</p>
+          <p><b>Performance balance:</b> cân bằng CPU–Memory–I/O–Interconnect; tăng bus width, cache nhiều cấp/gần CPU, tăng interconnect bandwidth.</p>
+          <p><b>Power:</b> Active/Dynamic = switching; Static = leakage khi vẫn cấp nguồn. <b>Benchmark suite</b> dùng so sánh workload chuẩn.</p>
+        </div>
+        <div class="a4box"><h2>IRON LAW · CPI · MIPS · AMDAHL</h2>
+          <div class="a4formula"><b>CPU time</b> = IC × CPI × Tcycle = IC × CPI / Clock rate</div>
+          <div class="a4formula"><b>Average CPI</b> = Σ(ICᵢ×CPIᵢ) / ΣICᵢ = Σ(fractionᵢ×CPIᵢ)</div>
+          <div class="a4formula"><b>MIPS</b> = IC/(Execution time×10⁶) = Clock rate/(CPI×10⁶)</div>
+          <div class="a4formula"><b>Amdahl speedup</b> = 1/[(1−P)+P/S]; max = 1/(1−P)</div>
+          <p>P = fraction improved; S = speedup of improved part. Giảm CPI hay tăng clock không tự đảm bảo nhanh hơn nếu IC/timing đổi.</p>
+        </div>
+        <div class="a4box"><h2>B3 · INSTRUCTION CYCLE / INTERRUPT (CHAPTER 02)</h2>
+          <p><b>Cycle:</b> Fetch → Decode → Indirect (nếu cần) → Execute → Interrupt check (nếu có) → Fetch next.</p>
+          <p><b>Polling:</b> CPU chủ động kiểm tra status/command-ready bit. <b>Interrupt:</b> thiết bị/controller gửi IRQ để yêu cầu CPU.</p>
+          <p><b>Handling:</b> IRQ → finish current instruction → save context (PC/flags/registers cần thiết) → vector/ISR address → execute ISR → restore context → IRET/return.</p>
+          <p><b>Types:</b> Program/software exception (overflow, divide by zero, illegal instruction); Timer, I/O, Hardware failure.</p>
+          <p><b>Sequential:</b> xử lý ISR lần lượt. <b>Nested:</b> ngắt ưu tiên cao chen vào ISR thấp.</p>
+        </div>
+      </div>
+      <div>
+        <div class="a4box"><h2>B4 · INTERCONNECTION / BUS (CHAPTER 02)</h2>
+          <p><b>Memory module:</b> N words, địa chỉ 0…N−1, read/write. <b>I/O module:</b> giao tiếp ngoài, có thể phát interrupt. <b>Processor:</b> đọc lệnh/dữ liệu, xử lý, ghi kết quả, phát control.</p>
+          <p><b>Data bus:</b> dữ liệu. <b>Address bus:</b> địa chỉ nguồn/đích. <b>Control bus:</b> Read/Write/Interrupt/Clock/status.</p>
+          <p><b>Bus hierarchy:</b> nhiều bus/cấp để cân bằng tốc độ. <b>Arbitration:</b> chọn bus master khi tranh chấp.</p>
+          <p><b>Synchronous:</b> theo clock. <b>Asynchronous:</b> handshaking. <b>Shared bus:</b> chung đường, dễ nghẽn. <b>Point-to-point:</b> kết nối riêng.</p>
+          <p><b>QPI example slide:</b> 3.2 GHz × 2 = 6.4 GT/s; 16 bit/transfer → 12.8 GB/s mỗi hướng (số ví dụ lý thuyết trên slide). <b>PCIe:</b> serial point-to-point; Lane x1/x4/x8/x16.</p>
+        </div>
+        <div class="a4box"><h2>B5 · MEMORY HIERARCHY / CACHE (CHAPTER 03)</h2>
+          <p><b>Constraints:</b> Capacity – Access time – Cost. Fast access → cost/bit cao; capacity lớn → cost/bit thấp và access time thường tăng.</p>
+          <p><b>Hierarchy:</b> Registers → L1 → L2 → L3 → DRAM/Main memory → SSD/HDD → Optical/archive.</p>
+          <p>Đi xuống hierarchy: cost/bit ↓; capacity ↑; access time ↑; processor access frequency ↓.</p>
+          <p><b>Locality:</b> Temporal = dùng lại gần đây; Spatial = địa chỉ gần nhau; Sequential = lệnh liên tiếp.</p>
+          <p><b>Cache:</b> nhỏ/nhanh hơn main memory. Hit = có block; Miss = không có, lấy từ cấp dưới. L1 nhỏ/nhanh, L2 lớn hơn, có thể L3.</p>
+          <div class="a4formula">Hit ratio = Hits / Total requests<br>Miss ratio = Misses / Total = 1 − Hit ratio</div>
+        </div>
+        <div class="a4box"><h2>B6 · CACHE MAPPING & POLICY</h2>
+          <table class="a4table"><tr><th>Mapping</th><th>Quy tắc</th></tr><tr><td>Direct</td><td>Block chỉ đến 1 line; line = block no. mod lines.</td></tr><tr><td>Fully associative</td><td>Block ở bất kỳ line nào.</td></tr><tr><td>Set-associative</td><td>Block đến 1 set; set = block no. mod sets; chọn line trong set.</td></tr></table>
+          <p><b>Address:</b> Offset chọn byte/word trong block; Index chọn line/set; Tag nhận diện block. Offset bits=log₂(block bytes); Index bits=log₂(lines/sets); Tag bits=Address bits−Index−Offset.</p>
+          <p><b>Replacement:</b> chọn victim khi hết chỗ (ví dụ LRU/FIFO/Random theo đề). <b>Write-through:</b> ghi Cache + Memory ngay. <b>Write-back:</b> ghi Memory khi block bị thay; theo dõi dirty bit.</p>
+        </div>
+        <div class="a4box"><h2>B7 · INTERNAL / EXTERNAL MEMORY</h2>
+          <p><b>SRAM:</b> flip-flop; không refresh; nhanh/đắt/cell lớn; Cache. <b>DRAM:</b> capacitor; refresh; chậm hơn/rẻ/cell nhỏ; Main memory. Cả hai volatile.</p>
+          <p><b>ROM:</b> non-volatile; <b>PROM:</b> program once; <b>EPROM:</b> UV erase; <b>EEPROM:</b> electrically erase/write; <b>Flash:</b> erase by block.</p>
+          <p><b>HDD:</b> platter/head; tracks, sectors, cylinders. <b>Seek:</b> di chuyển head; <b>Rotational latency:</b> chờ sector; <b>Transfer:</b> truyền dữ liệu.</p>
+          <div class="a4formula">Access time ≈ Seek + Average rotational latency + Transfer<br>Average rotational latency = 30/RPM seconds</div>
+          <p><b>RAID:</b> nhiều disk thành array nhằm performance/redundancy theo level. <b>SSD:</b> flash, không moving parts, low latency/IOPS cao; chú ý endurance/wear leveling. <b>Optical:</b> CD-ROM đọc; CD-R ghi một lần; CD-RW ghi/xóa lại; DVD.</p>
+        </div>
+      </div>
+    </div>
+    <div class="a4foot">A4 · Mặt A · Buổi 1–7 · Kiến trúc & Hiệu năng – Instruction/Bus – Memory</div>
+  </article>
+
+  <article class="a4page">
+    <div class="a4head"><h1>KIẾN TRÚC MÁY TÍNH & HỢP NGỮ · ÔN GIỮA KỲ 1</h1><span>MẶT B · CHAPTER 04–05 · BUỔI 8–9</span></div>
+    <div class="a4cols">
+      <div>
+        <div class="a4box"><h2>B8 · CPU / REGISTER ORGANIZATION (CHAPTER 04)</h2>
+          <p><b>Execution mode</b> quyết định instruction hợp lệ, memory region, functional units và privilege. <b>Protection:</b> OS quyền cao; application quyền hạn chế. Mode change: automatic (hardware) / manual (program/OS).</p>
+          <p><b>User-visible registers:</b> General-purpose, Data, Address (segment/index/stack), Flags/condition codes. <b>Control & status:</b> PC/IP, IR, MAR, MBR, flags/status.</p>
+          <table class="a4table"><tr><th>Nhóm</th><th>Registers cần nhớ</th></tr><tr><td>x86 16-bit</td><td>AX BX CX DX; SP BP SI DI; CS DS SS ES; IP; FLAGS.</td></tr><tr><td>x86 32-bit</td><td>EAX EBX ECX EDX; ESP EBP ESI EDI; EIP; EFLAGS.</td></tr><tr><td>x64</td><td>RAX…RDI; RSP/RBP/RSI/RDI; RIP/RFLAGS; R8–R15.</td></tr></table>
+          <p><b>Flags:</b> CF carry/borrow unsigned; PF parity; AF auxiliary carry; ZF zero; SF sign; OF signed overflow. TF trap/single-step; IF interrupt enable; DF direction string.</p>
+        </div>
+        <div class="a4box"><h2>MACHINE INSTRUCTION / X86 OPERATIONS</h2>
+          <p><b>Instruction elements:</b> Opcode; operand storage/location; explicit operands (0/1/2/3); operand size/type. Operand types: address, number, character, logical.</p>
+          <table class="a4table"><tr><th>Operation</th><th>Ví dụ</th></tr><tr><td>Data movement</td><td>MOV, PUSH, LEA, MOVSX, IN/OUT</td></tr><tr><td>Arithmetic</td><td>ADD, SUB, MUL, DIV, IDIV</td></tr><tr><td>Logical / Shift / Rotate</td><td>AND, OR, XOR, NOT; SHL/SHR/SAR; ROL/ROR</td></tr><tr><td>Control transfer</td><td>JMP, JE/JZ, CALL, LOOP</td></tr><tr><td>String</td><td>LODS, STOS, MOVS, SCAS</td></tr></table>
+          <p><b>Address count:</b> 3: C←A OP B; 2: A←A OP B; 1: AC←AC OP A; 0: stack T←(T−1) OP T.</p>
+        </div>
+        <div class="a4box"><h2>X86 REAL MODE / SEGMENTATION (8086/8088)</h2>
+          <p>20 address lines → physical space 00000h–FFFFFh = 1 MiB. 16-bit Segment + 16-bit Offset.</p>
+          <div class="a4formula"><b>PA = Segment × 16 + Offset = (Segment &lt;&lt; 4) + Offset</b></div>
+          <p><b>Segment boundary:</b> paragraph boundary chia hết cho 16; segment tối đa 64 KiB. Một Physical Address có thể viết bằng nhiều cặp Segment:Offset.</p>
+          <p><b>Registers:</b> CS:IP = next instruction; DS/ES:BX/SI/DI = data; SS:SP = top of stack; SS:BP = stack data/local variable.</p>
+          <p><b>Addressing modes:</b> Immediate = value in instruction; Direct = address field is EA; Indirect = field trỏ đến nơi chứa EA; Register; Register Indirect; Displacement/Relative/Indexed; Based-Indexed; Based-Indexed + displacement; Stack.</p>
+        </div>
+        <div class="a4box"><h2>BINARY / BASE CONVERSION (CHAPTER 05)</h2>
+          <p><b>Positional:</b> N = Σ dᵢ × baseⁱ. Decimal 10; Binary 2; Octal 8 (digits 0–7); Hex 16 (0–9,A–F).</p>
+          <p><b>Binary → Octal:</b> nhóm 3 bit. <b>Binary → Hex:</b> nhóm 4 bit. Decimal integer → chia liên tiếp base; decimal fraction → nhân liên tiếp base.</p>
+          <p><b>MSB:</b> most significant bit (trái). <b>LSB:</b> least significant bit (phải). Fraction bits: 2⁻¹, 2⁻², 2⁻³…</p>
+        </div>
+      </div>
+      <div>
+        <div class="a4box"><h2>SIGNED INTEGER / RANGE EXTENSION</h2>
+          <div class="a4formula">Unsigned n-bit: 0 … 2ⁿ−1<br>Signed 2’s comp: −2ⁿ⁻¹ … 2ⁿ⁻¹−1</div>
+          <p>8-bit unsigned 0…255; signed −128…127. 16-bit unsigned 0…65535; signed −32768…32767.</p>
+          <p><b>Sign-magnitude:</b> sign + magnitude; có +0 và −0. <b>One’s comp:</b> đảo bit; có hai zero. <b>Two’s comp:</b> đảo bit +1.</p>
+          <p><b>Negate:</b> invert all bits → add 1. <b>Sign extension:</b> copy sign bit to left; <b>Zero extension:</b> fill zeros on left (unsigned).</p>
+          <p><b>CF:</b> carry-out/borrow cho unsigned. <b>OF:</b> signed overflow. Hai cờ độc lập. Signed addition overflow khi hai toán hạng cùng dấu nhưng kết quả khác dấu.</p>
+        </div>
+        <div class="a4box"><h2>INTEGER / STRING / FLOATING-POINT</h2>
+          <p><b>Integer sizes:</b> Byte 8; Word 16; Doubleword 32; Quadword 64 bits.</p>
+          <p><b>String:</b> ASCII code từng ký tự; null-terminated string có thêm 00h. "19653" = 5 chars + null = 6 bytes; integer 19653 trong 16-bit Word = 2 bytes.</p>
+          <p><b>IEEE 754:</b> Value = (−1)^S × 1.F × 2^(E−Bias) (normalized). E = e + Bias; hidden leading 1 không lưu trong fraction.</p>
+          <table class="a4table"><tr><th>Format</th><th>Sign</th><th>Exponent</th><th>Fraction</th><th>Bias</th></tr><tr><td>Single 32</td><td>1</td><td>8</td><td>23</td><td>127</td></tr><tr><td>Double 64</td><td>1</td><td>11</td><td>52</td><td>1023</td></tr></table>
+          <p>Exponent all 0 → zero/subnormal; all 1 → Infinity (fraction=0) / NaN (fraction≠0).</p>
+        </div>
+        <div class="a4box"><h2>ENDIAN / MEMORY LAYOUT / GDB</h2>
+          <p><b>Little-endian:</b> least significant byte at lowest address. <b>Big-endian:</b> most significant byte at lowest address.</p>
+          <p>Ví dụ 0x12345678 tại 100h: Little = 78 56 34 12; Big = 12 34 56 78.</p>
+          <p><b>Text:</b> code; <b>Data:</b> initialized global/static; <b>BSS:</b> zero/uninitialized global/static; <b>Heap:</b> dynamic allocation; <b>Stack:</b> function frames/local variables.</p>
+          <p><b>GDB:</b> break main (breakpoint); run; next (next source line); step (step into); continue; print var; x/4xb addr (4 bytes, hex); info registers; backtrace; quit.</p>
+        </div>
+        <div class="a4box"><h2>5 CẶP DỄ NHẦM NHẤT</h2>
+          <p>1. <b>CF ≠ OF:</b> CF unsigned carry; OF signed overflow.</p>
+          <p>2. <b>Data ≠ BSS:</b> initialized nonzero vs zero/uninitialized globals.</p>
+          <p>3. <b>Little ≠ Big:</b> LSB byte first vs MSB byte first.</p>
+          <p>4. <b>Direct ≠ Indirect:</b> field gives effective address vs field points to memory containing effective address.</p>
+          <p>5. <b>Segment ≠ Offset:</b> PA = Segment×16 + Offset; không cộng trực tiếp.</p>
+        </div>
+        <div class="a4box"><h2>ĐIỂM KIỂM CHỨNG SLIDE</h2>
+          <p>Octal phải là Base 8 (slide ghi Base 7 nhưng ghi chữ số 0–7). Ví dụ e7/slide 37 có label bit-field không khớp phép tính. 65530₁₀ = FFFAh, không phải FFF0h. Khi làm bài hãy theo phép tính và số bit thực tế.</p>
+        </div>
+      </div>
+    </div>
+    <div class="a4foot">A4 · Mặt B · Buổi 8–9 · CPU & Registers – Addressing – Data Representation</div>
+  </article>
+</div>
+<script>
+const tabs=document.querySelectorAll('.tab');
+tabs.forEach(t=>t.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));t.classList.add('active');document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(t.dataset.tab).classList.add('active');}));
+const details=[...document.querySelectorAll('.session')];
+document.getElementById('expandAll').addEventListener('click',()=>details.forEach(d=>{if(!d.hidden)d.open=true;}));
+document.getElementById('collapseAll').addEventListener('click',()=>details.forEach(d=>d.open=false));
+document.getElementById('searchBox').addEventListener('input',e=>{const q=e.target.value.toLocaleLowerCase('vi').trim();details.forEach(d=>{const ok=!q||d.innerText.toLocaleLowerCase('vi').includes(q)||d.dataset.search.toLocaleLowerCase('vi').includes(q);d.hidden=!ok;if(q&&ok)d.open=true;});});
+</script>
+</body>
+</html>
