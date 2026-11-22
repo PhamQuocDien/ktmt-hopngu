@@ -1,0 +1,9 @@
+GÓI ÔN GIỮA KỲ KIẾN TRÚC MÁY TÍNH & HỢP NGỮ
+
+1) Giải nén toàn bộ ZIP vào cùng một thư mục.
+2) Mở index.html bằng Chrome hoặc Edge.
+3) Tab PDF giáo trình có liên kết Chapter 00–05; có thể bấm Mở PDF ở từng buổi hoặc trong thư viện tài liệu.
+4) Tab 10 đề thi thử: mỗi đề 10 câu/20 điểm, trộn Chapter 00–05; gồm Single Choice, Multiple Select, True/False, Matching kéo-thả/chọn và Short Answer. Các câu trắc nghiệm có tiếng Anh kèm dịch tiếng Việt. Sau khi nộp, xem lại đủ câu rồi mới bấm xem tổng điểm.
+5) Tab A4: tờ tóm tắt 2 mặt A4 ngang, border theo nhóm chapter, không padding nội bộ, line-height 0.2cm. In ở tỷ lệ 100%, lề 4 mm.
+
+Phạm vi website: Chapter 00–05 / Buổi 01–09 theo phạm vi người học cung cấp.
