@@ -1,39 +1,35 @@
-KIỂM DUYỆT – LEARNHUB KTMT (HỒ SƠ NGƯỜI HỌC RIÊNG)
+KIỂM DUYỆT – LEARNHUB KTMT / SƠ ĐỒ THEO FILE MẪU NGƯỜI HỌC
 
-NGUYÊN TẮC TIẾN ĐỘ
-- Đã loại bỏ tiến độ mặc định 9/20 và các dòng code tự động gán hoàn thành Buổi 01–09.
-- Không suy ra đã học từ việc mở trang, đọc tài liệu, làm bài, đạt điểm test hay dùng tên người dùng.
-- Người học phải chọn/tạo hồ sơ riêng. Hồ sơ mới bắt đầu với progress={} và examHistory=[] (0/20, không có lịch sử).
-- Mỗi lần tải lại trang khóa học đều yêu cầu chọn hồ sơ; không tự động nạp hồ sơ cuối cùng, tránh người tiếp theo dùng chung trình duyệt bị gán nhầm hồ sơ.
-- Hồ sơ được lưu riêng trong localStorage bằng key learnhub_ktmt_profiles_v2; từng profile có progress và examHistory riêng.
-- Chỉ nút “Tôi xác nhận hoàn thành Buổi N” mới ghi nhận progress[N]=true. Mở buổi không ghi tiến độ.
-- Exam history và trạng thái review “Đã ôn” trên knowledge-map được namespace theo mã hồ sơ.
-- Không tự động migrate dữ liệu từ key cũ learnhub_ktmt_progress_v1 / learnhub_ktmt_exam_history_v1, vì không thể biết dữ liệu đó thuộc về người nào.
+GIAO DIỆN SƠ ĐỒ
+- Trang courses/ktmt/knowledge-map.html được dựng lại từ file KTMT_Formula_MathML_KnowledgeReview.html do người học cung cấp.
+- Mặc định mở tab “Sơ đồ tư duy”: khối tổng quan chương, tiếp theo là 9 nhánh buổi theo cấu trúc details/summary; mở/thu gọn từng buổi như phiên bản tham chiếu.
+- Giữ ô tìm kiếm, nút mở tất cả/thu gọn, công thức MathML, ví dụ và các bước giải, bảng so sánh, điểm dễ nhầm, tài liệu PDF, practice bank và 55 đề theo cấu trúc của file mẫu.
+- Trang có tab “Duyệt sơ đồ kiến thức” bổ sung; đây là tab tùy chọn, không phải giao diện mặc định.
+- Mục “Lộ trình học 20 buổi” là liên kết sang dashboard chính, không tạo lộ trình 9 buổi trùng lặp. Có nút quay về KTMT.
+- Trong 9 nhánh hiện có 43 đề mục h4, 119 mục li và 3 bảng so sánh/đối chiếu trong nội dung buổi; ngoài ra có các đoạn giải thích, ghi chú, công thức và ví dụ.
 
-GIỚI HẠN CẦN CÔNG KHAI
-- Đây là profile separation ở mức trình duyệt (localStorage), không phải hệ thống tài khoản có xác thực server, không có PIN/backend và không đồng bộ đám mây.
-- Người dùng khác trên cùng máy cần chọn đúng hồ sơ của mình; nếu cần bảo mật tài khoản thật sự cho website công khai, cần thêm backend và authentication riêng.
-- Trình duyệt/máy khác nhau sẽ có kho dữ liệu localStorage riêng.
+HỒ SƠ / DỮ LIỆU
+- Trang sơ đồ nhận profile ID qua query string từ dashboard. Exam results, review marks, language preferences và trạng thái legacy map course được namespace theo mã hồ sơ.
+- Nếu mở trực tiếp không có profile, trang dùng namespace tạm riêng cho phiên đó, tránh ghi vào vùng dùng chung giữa các hồ sơ đã chọn.
+- Dashboard dùng learnhub_ktmt_profiles_v2; hồ sơ mới có progress={} và examHistory=[] (0/20, không tự đánh dấu).
+- Chỉ nút xác nhận của người học mới cập nhật hoàn thành; roadmap khóa tuần tự theo nextLearningSession.
+- Giới hạn: profile separation lưu bằng localStorage trong trình duyệt hiện tại, chưa có server authentication hoặc đồng bộ cloud.
 
-GIỮ NGUYÊN CHỨC NĂNG KHÓA HỌC
-- 20 buổi roadmap và cơ chế mở khóa tuần tự.
-- Lesson view: mục tiêu, lý thuyết, worked example, practice, pitfalls, checklist, Mini Test và xác nhận hoàn thành thủ công.
-- Exam Center: 45 đề theo buổi, 10 đề tổng hợp, midterm review; lịch sử bài làm tách theo profile.
-- Knowledge map dạng cây, A4 PDF 2 trang ngang, và 6 PDF Chapter00–05.
-- Tiếp tục duy trì một index.html duy nhất ở thư mục gốc.
+KHÓA HỌC CHÍNH
+- Giữ trang chủ index.html duy nhất ở thư mục gốc.
+- Giữ dashboard KTMT, lộ trình 20 buổi, lesson view, bài tập/Mini Test, ngân hàng 45 đề theo buổi + 10 đề tổng hợp, và trang tài liệu.
+- Sơ đồ cây và A4 là các tài nguyên hỗ trợ; không thay thế dashboard/lộ trình.
+- Giữ mindmap-a4.html và mindmap-a4.pdf đúng 2 trang A4 ngang.
+- Giữ 6 PDF gốc Chapter00–05.
 
-KIỂM TRA TĨNH
-- JavaScript syntax checked.
-- HTML parse and duplicate ID check.
-- Không còn auto-seed 9/20 hoặc dùng localStorage global keys cũ.
-- Profile start state checked: progress={}, examHistory=[]; first unlocked lesson resolves to Buổi 01.
-- Profile history and mindmap review keys scoped by profile ID.
-- Local link checks, ZIP integrity and count of index.html checked after packaging.
-- Browser UI automation unavailable in this environment; visual click-through not claimed.
+KIỂM TRA TĨNH ĐÃ CHẠY
+- 3 trang HTML chính: cú pháp JavaScript kiểm tra bằng node --check; không có ID trùng.
+- Knowledge map: 9 nhánh buổi, 8 tab nội bộ + liên kết lộ trình 20 buổi, mặc định Sơ đồ tư duy active.
+- Liên kết cục bộ từ knowledge-map.html tới ktmt.html và PDF: không có đường dẫn thiếu.
+- Dashboard: ROADMAP có 20 phần tử; hồ sơ bắt đầu 0/20; kiểm tra namespace giữa hai profile tạo ra key khác nhau.
+- PDF A4: 2 trang. PDF nguồn: Chapter00 13 trang, Chapter01 78, Chapter02 41, Chapter03 57, Chapter04 51, Chapter05 29.
+- Có đúng 1 tệp index.html trong toàn bộ thư mục/gói.
+- ZIP integrity và danh sách tệp được kiểm tra sau đóng gói.
 
-CAP NHAT GIAO DIEN SO DO – BAN GON MOT LAN CHON
-- knowledge-map.html đã chuyển sang giao diện 9 nút chọn buổi; chọn một lần để hiển thị toàn bộ các nhóm chủ đề và ghi chú của buổi.
-- Không còn phải mở từng nhóm/chủ đề con; bỏ dropdown lọc kép, nút mở/thu gọn tất cả và checkbox đã ôn gây nhiều thao tác.
-- Giữ 377 mục kiến thức, 73 nhóm; ô tìm kiếm duy nhất tra trên tất cả 9 buổi.
-- Không hiển thị tiến độ 9/20 cố định trên trang sơ đồ; không ghi trạng thái tiến độ người học tại đây.
-- Bản đồ A4 PDF, trang dashboard, lộ trình và đề tự luyện không bị thay đổi.
+GIỚI HẠN KIỂM THỬ
+- Chromium headless trong môi trường này bị timeout khi mở file cục bộ; vì vậy không tuyên bố đã xác nhận click-through trực quan trên trình duyệt.
