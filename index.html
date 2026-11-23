@@ -72,6 +72,45 @@
 .practice-session-heading{margin:20px 0 10px;padding:10px 13px;border-left:4px solid #55d6e8;background:#13243b;border-radius:0 10px 10px 0}.practice-session-heading h3{margin:0;font-size:16px}.practice-session-heading p{margin:2px 0 0;color:#a7b9d1;font-size:11px}.practice-topic{margin:12px 0 18px}.practice-topic h4{font-size:13px;color:#86dce9;margin:0 0 8px;text-transform:uppercase;letter-spacing:.04em}.practice-card{border:1px solid #304563;background:linear-gradient(145deg,#111d31,#0d1729);border-radius:13px;padding:13px;margin:8px 0}.practice-card.checked{border-color:#367c63}.practice-card h5{font-size:14px;margin:0 0 7px;color:#f2f7ff}.practice-card .practice-stem{font-size:13px;color:#e9f2ff}.practice-vi{font-size:12px;color:#9eb5d1;background:#0c1829;padding:7px 9px;border-radius:7px;margin:7px 0}.practice-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:9px 0}.practice-option{display:flex;gap:8px;align-items:flex-start;border:1px solid #334c6e;border-radius:8px;padding:8px;background:#14233a;font-size:12px;color:#e5efff}.practice-option input{margin-top:3px;accent-color:#55d6e8}.practice-option small{display:block;font-size:11px;color:#9db4cf;margin-top:3px}.practice-answer-input{width:min(360px,100%);padding:9px;border:1px solid #45617f;background:#0b1423;color:#fff;border-radius:8px;margin:8px 0}.practice-match{display:grid;grid-template-columns:minmax(130px,1fr) minmax(170px,1.4fr);gap:7px;align-items:center;margin:7px 0}.practice-match select{background:#0b1423;color:#fff;border:1px solid #45617f;border-radius:7px;padding:7px;width:100%}.practice-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.practice-actions button{border:1px solid #45698e;background:#193b5d;color:#f2f8ff;border-radius:8px;padding:7px 11px;font-size:12px;font-weight:700}.practice-actions .check-practice{background:#13563f;border-color:#328b66}.practice-feedback{display:none;margin-top:10px;border-radius:9px;padding:10px;font-size:12px}.practice-feedback.show{display:block}.practice-feedback.good{background:rgba(65,178,123,.13);border:1px solid #367c63;color:#d7ffeb}.practice-feedback.bad{background:rgba(220,95,123,.12);border:1px solid #87485c;color:#ffe1e9}.practice-feedback .steps{margin-top:7px;padding-top:7px;border-top:1px solid rgba(180,200,220,.2);white-space:pre-line}.formula-example-block{border:1px solid #355473;border-radius:13px;background:linear-gradient(145deg,rgba(16,36,59,.85),rgba(13,23,40,.9));padding:13px;margin:15px 0}.formula-example-block h4{margin:0 0 8px;color:#77dce9;font-size:14px}.formula-example-block .worked{border-left:3px solid #77dce9;padding:8px 11px;background:rgba(8,19,33,.65);border-radius:0 8px 8px 0;margin:7px 0;color:#dce9fa;font-size:12px;white-space:pre-line}.formula-example-block .formula-line{font-family:Cambria,Georgia,serif;color:white;background:#091321;border:1px solid #263c5c;padding:7px 9px;border-radius:7px;margin:6px 0;font-size:14px}.formula-example-block .no-formula{color:#b5c6dc;font-size:12px}
 .formula-example-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.formula-example-card{border:1px solid #314a68;border-radius:11px;padding:11px;background:#111e32}.formula-example-card h4{margin:0 0 5px;color:#82ddeb;font-size:13px}.formula-example-card p{font-size:12px;color:#c4d4e8;margin:5px 0}.formula-example-card .formula-line{font-family:Cambria,Georgia,serif;background:#081322;color:#fff;padding:7px;border-radius:6px;display:block;font-size:13px}.formula-example-card .worked{font-size:12px;color:#bcd1e8;white-space:pre-line;margin-top:6px}
 @media(max-width:700px){.practice-options,.formula-example-grid{grid-template-columns:1fr}.practice-hero{align-items:flex-start;flex-direction:column}.practice-controls select{min-width:190px}.practice-match{grid-template-columns:1fr}}
+
+/* Formula rendering upgrade: clean display-math cards with native MathML (works offline in modern browsers) */
+.formula{position:relative;overflow:hidden;background:linear-gradient(145deg,#14243b,#0e192b);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.formula:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(#63dced,#7a8df5)}
+.formula h3{font-size:13px;letter-spacing:.01em;padding-left:2px}
+.math.pretty-math,.formula-line.pretty-math{display:flex;align-items:center;justify-content:center;min-height:52px;text-align:center;padding:11px 12px;margin:8px 0;background:radial-gradient(ellipse at 50% 0%,rgba(71,129,184,.16),transparent 70%),#081322;border:1px solid #345273;border-radius:11px;color:#fff;overflow-x:auto;overflow-y:hidden}
+.math.pretty-math math,.formula-line.pretty-math math{font-family:"Cambria Math",Cambria,Georgia,serif;font-size:1.22em;color:#fff;white-space:nowrap}
+.formula-example-block .formula-line.pretty-math{justify-content:flex-start;min-height:44px;font-size:15px}
+.formula-example-card .formula-line.pretty-math{justify-content:flex-start;min-height:42px}
+.math-fallback{font-family:"Cambria Math",Cambria,Georgia,serif;font-size:1.12em;font-weight:600;white-space:nowrap}
+.formula-symbol-note{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.formula-symbol-note span{border:1px solid #304967;background:#14243b;color:#bcd3eb;border-radius:7px;padding:3px 7px;font-size:10px}
+.formula .formula-copy{position:absolute;right:10px;top:9px;border:1px solid #355575;background:#1b304b;color:#a9ddeb;border-radius:7px;padding:3px 7px;font-size:10px;opacity:.85}
+.formula .formula-copy:hover{border-color:#6bd7e8;color:white}
+.formula-example-block .worked{line-height:1.55}
+.formula-example-block .worked b{color:#f0d28c}
+.formula-legend{font-size:12px;color:#9fb5d0;margin-top:7px}
+/* Knowledge review map */
+.review-progress-pill{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:95px;padding:8px 14px;border:1px solid #3b6283;border-radius:12px;background:#10263b}
+.review-progress-pill b{color:#82e2ee;font-size:20px}.review-progress-pill small{font-size:10px;color:#a9bed5}
+.review-hero-map{border:1px solid #355678;border-radius:17px;background:linear-gradient(145deg,#0e1d31,#15243c);padding:13px;margin:12px 0 15px}
+.review-map-root{max-width:440px;margin:0 auto 12px;text-align:center;border:1px solid #5a87aa;border-radius:13px;background:linear-gradient(110deg,#17435c,#282c54);padding:13px}
+.review-map-root span{display:block;color:#72dcec;font-size:9px;font-weight:900;letter-spacing:.15em}.review-map-root b{display:block;font-size:15px;color:#fff;margin:4px}.review-map-root small{color:#bed0e5;font-size:10px}
+.review-map-branches{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;position:relative}
+.review-branch{border:1px solid #385371;border-radius:10px;background:#14253d;color:#eaf3ff;text-align:left;padding:9px 11px;transition:.15s}
+.review-branch:hover{border-color:#66d8e6;transform:translateY(-1px)}.review-branch b{display:block;color:#81dfec;font-size:11px}.review-branch span{display:block;color:#b4c6dd;font-size:11px;margin-top:3px}
+.review-tools{display:flex;align-items:end;gap:8px;flex-wrap:wrap;padding:11px;border:1px solid #304866;border-radius:12px;background:#101c30;margin:12px 0}
+.review-tools label{display:flex;flex-direction:column;gap:5px;color:#aebfd4;font-size:11px}.review-tools select{min-width:135px;background:#0b1525;color:#eff7ff;border:1px solid #405b7a;border-radius:8px;padding:9px}
+.review-search{flex:1;min-width:230px;position:relative!important}.review-search input{width:100%;background:#0b1525;color:#fff;border:1px solid #405b7a;border-radius:8px;padding:9px 11px}
+.review-tools button{border:1px solid #3d5b7b;background:#1a304d;color:#dfeeff;border-radius:8px;padding:9px 10px;font-size:11px;font-weight:700}.review-tools button:hover{border-color:#62d6e6}
+.review-hint{border-left:3px solid #e1bb70;background:rgba(225,187,112,.08);padding:9px 12px;color:#cbd9e9;border-radius:0 8px 8px 0;font-size:12px;margin:10px 0}
+.review-tree{display:grid;grid-template-columns:1fr;gap:10px}.review-tree .session{margin:0}.review-tree .session[hidden]{display:none!important}.review-tree .session summary{padding-right:15px}.review-session-tools{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:0 16px 10px 68px;padding:8px 10px;background:rgba(255,255,255,.025);border:1px solid #263d5a;border-radius:9px}
+.review-session-tools .review-topic-list{display:flex;flex-wrap:wrap;gap:4px}.review-topic-list span{font-size:10px;border:1px solid #314e6b;color:#afc9e1;background:#14243a;border-radius:6px;padding:3px 6px}
+.review-done-check{display:flex;align-items:center;gap:6px;color:#a6e9c6;font-size:11px;white-space:nowrap}.review-done-check input{accent-color:#51d89c;width:15px;height:15px}
+.review-tree .content{padding-top:0}.review-tree .content h4{padding-top:7px;border-top:1px solid rgba(115,151,188,.18)}.review-tree .content h4:first-child{border:0}
+.review-bottom-note{font-size:11px;color:#8fa5bf;margin:14px 0 5px}
+@media(max-width:900px){.review-map-branches{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.review-map-branches{grid-template-columns:1fr}.review-session-tools{margin:0 10px 10px}.review-tools{align-items:stretch}.review-tools label,.review-tools select{width:100%}}
+
 </style>
 </head>
 <body>
@@ -95,6 +134,7 @@
 </div>
 <nav aria-label="Các khu vực" class="tabs">
 <button class="tab active" data-tab="mind">Sơ đồ tư duy</button>
+<button class="tab" data-tab="knowledgeReview">Duyệt sơ đồ kiến thức</button>
 <button class="tab" data-tab="course">Học theo khóa học</button>
 <button class="tab" data-tab="formula">Công thức &amp; bảng so sánh</button>
 <button class="tab" data-tab="focus">Điểm dễ nhầm / trọng tâm</button>
@@ -102,6 +142,35 @@
 <button class="tab" data-tab="docs">PDF giáo trình</button>
 <button class="tab" data-tab="practicebank">Luyện bài tập theo buổi</button><button class="tab" data-tab="mocktests">55 đề thi thử</button>
 </nav>
+
+<section class="view" id="knowledgeReview">
+  <div class="section-title">
+    <div><h2>Duyệt lại sơ đồ kiến thức · Buổi 01–09</h2><p>Ôn theo nhánh Chapter → Buổi → Chủ đề → Giải thích. Mở từng nhánh, tìm từ khóa và đánh dấu đã ôn.</p></div>
+    <div class="review-progress-pill"><b id="reviewDoneCount">0/9</b><small>buổi đã duyệt lại</small></div>
+  </div>
+  <div class="review-hero-map">
+    <div class="review-map-root"><span>TRUNG TÂM</span><b>COMPUTER ARCHITECTURE<br>&amp; ASSEMBLY LANGUAGE</b><small>Kiến thức cốt lõi Buổi 01–09 · Chapter 00–05</small></div>
+    <div class="review-map-branches">
+      <button class="review-branch" data-jump-session="1"><b>Chapter 00</b><span>Buổi 01 · Introduction &amp; IAS</span></button>
+      <button class="review-branch" data-jump-session="2"><b>Chapter 01</b><span>Buổi 02 · Evolution &amp; Performance</span></button>
+      <button class="review-branch" data-jump-session="3"><b>Chapter 02</b><span>Buổi 03–04 · Function, Interrupt &amp; Bus</span></button>
+      <button class="review-branch" data-jump-session="5"><b>Chapter 03</b><span>Buổi 05–07 · Memory &amp; Cache</span></button>
+      <button class="review-branch" data-jump-session="8"><b>Chapter 04</b><span>Buổi 08 · CPU, Registers &amp; Addressing</span></button>
+      <button class="review-branch" data-jump-session="9"><b>Chapter 05</b><span>Buổi 09 · Data Representation</span></button>
+    </div>
+  </div>
+  <div class="review-tools">
+    <label class="review-search">⌕ <input id="reviewSearch" type="search" placeholder="Tìm chủ đề: Amdahl, Bus, Cache, RAID, EFLAGS, IEEE 754..." /></label>
+    <label>Buổi học <select id="reviewSessionFilter"><option value="all">Tất cả Buổi 01–09</option><option value="1">Buổi 01</option><option value="2">Buổi 02</option><option value="3">Buổi 03</option><option value="4">Buổi 04</option><option value="5">Buổi 05</option><option value="6">Buổi 06</option><option value="7">Buổi 07</option><option value="8">Buổi 08</option><option value="9">Buổi 09</option></select></label>
+    <button type="button" id="reviewExpandAll">Mở tất cả nhánh</button>
+    <button type="button" id="reviewCollapseAll">Thu gọn</button>
+    <button type="button" id="reviewClearMarks">Xóa dấu đã ôn</button>
+  </div>
+  <div class="review-hint"><b>Cách duyệt:</b> Mở buổi → đọc các nhánh con → đánh dấu “Đã ôn buổi này”. Dùng tìm kiếm để lọc nội dung; khi tìm thấy, nhánh liên quan sẽ tự mở.</div>
+  <div class="review-tree" id="reviewTree"></div>
+  <div class="review-bottom-note">Phần duyệt lại sử dụng các nhánh kiến thức chi tiết của từng buổi đã có trong website, không thay thế PDF giáo trình. Với nội dung cần học sâu hoặc xem slide minh họa, mở PDF Chapter tương ứng.</div>
+</section>
+
 <section class="view" id="course"><div class="section-title"><h2>Học theo khóa học · Lộ trình như nền tảng F8</h2><p>Học lần lượt theo buổi · Lý thuyết → Bài thực hành → Mini Test → Xác nhận hoàn thành</p></div><div class="callout"><strong>Phạm vi khóa học trong bản này:</strong> 9 buổi đầu (Chapter 00–05), là phần tài liệu đang được đóng gói và phần ôn giữa kỳ bạn yêu cầu. Lộ trình chính thức của toàn môn còn các buổi 10–15 (Chapter 06–08); không tự tạo nội dung các chương đó khi tài liệu chưa nằm trong gói này.</div><div class="course-dashboard" id="courseDashboard"></div><div class="course-lessons" id="courseLessons"></div><div class="callout"><strong>Quy tắc học:</strong> Hệ thống không tự động đánh dấu hoàn thành. Người học đọc lý thuyết, làm một bài thực hành tích hợp, nộp Mini Test, xem lại kết quả và tự xác nhận hoàn thành buổi học.</div></section>
 <section class="view active" id="mind">
 <div class="overview">
@@ -1002,5 +1071,138 @@ PRACTICE_BANK.push(
 );
 renderPracticeBank();
 </script>
+
+<script id="formula-render-and-knowledge-review-upgrade">
+(function(){
+  const escM = v => String(v).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const math = body => `<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><mstyle mathsize="1.12em">${body}</mstyle></math>`;
+  const mi = t => `<mi>${escM(t)}</mi>`;
+  const mn = t => `<mn>${escM(t)}</mn>`;
+  const mo = t => `<mo>${escM(t)}</mo>`;
+  const mt = t => `<mtext>${escM(t)}</mtext>`;
+  const row = (...x) => `<mrow>${x.join('')}</mrow>`;
+  const frac = (a,b) => `<mfrac><mrow>${a}</mrow><mrow>${b}</mrow></mfrac>`;
+  const atom = v => String(v).trim().startsWith('<') ? String(v) : `<mi>${escM(v)}</mi>`;
+  const sup = (a,b) => `<msup><mrow>${a}</mrow><mrow>${atom(b)}</mrow></msup>`;
+  const sub = (a,b) => `<msub><mrow>${a}</mrow><mrow>${atom(b)}</mrow></msub>`;
+  function formulaMarkup(raw){
+    const t=String(raw).replace(/\s+/g,' ').trim();
+    if(t.startsWith('CPU time = IC × CPI × Tcycle')) return math(row(mt('CPU time'),mo('='),mi('IC'),mo('×'),mi('CPI'),mo('×'),sub(mi('T'),'cycle')));
+    if(t.startsWith('CPU time = (IC × CPI) / Clock rate')) return math(row(mt('CPU time'),mo('='),frac(row(mi('IC'),mo('×'),mi('CPI')),mt('Clock rate'))));
+    if(t.startsWith('CPIavg =')) return math(row(sub(mi('CPI'),'avg'),mo('='),frac(row(mo('Σ'),row(sub(mi('IC'),'i'),mo('×'),sub(mi('CPI'),'i'))),row(mo('Σ'),sub(mi('IC'),'i')))));
+    if(t.startsWith('MIPS = IC /')) return math(row(mi('MIPS'),mo('='),frac(mi('IC'),row(mt('Execution time'),mo('×'),sup(mn('10'),mn('6'))))));
+    if(t.startsWith('MIPS = Clock rate')) return math(row(mi('MIPS'),mo('='),frac(mt('Clock rate'),row(mi('CPI'),mo('×'),sup(mn('10'),mn('6'))))));
+    if(t.startsWith('Speedup = 1 /')) return math(row(mi('Speedup'),mo('='),frac(mn('1'),row(mo('('),row(mn('1'),mo('−'),mi('P')),mo(')'),mo('+'),frac(row(mi('P')),mi('S'))))));
+    if(t.startsWith('Smax =')) return math(row(sub(mi('S'),'max'),mo('='),frac(mn('1'),row(mn('1'),mo('−'),mi('P')))));
+    if(t.startsWith('Hit ratio =')) return math(row(mt('Hit ratio'),mo('='),frac(mt('Hits'),mt('Total requests'))));
+    if(t.startsWith('Miss ratio =')) return math(row(mt('Miss ratio'),mo('='),frac(mt('Misses'),mt('Total requests')),mo('='),mn('1'),mo('−'),mt('Hit ratio')));
+    if(t.startsWith('Direct line =')) return math(row(mt('Cache line'),mo('='),mt('Block number'),mo(' mod '),mt('Number of cache lines')));
+    if(t.startsWith('Set =')) return math(row(mt('Set number'),mo('='),mt('Block number'),mo(' mod '),mt('Number of sets')));
+    if(t.startsWith('Offset bits=')) return math(row(mt('Offset bits'),mo('='),sub(mi('log'),'2'),mo('('),mt('block bytes'),mo(')'),mo(';'),mt('Index bits'),mo('='),sub(mi('log'),'2'),mo('('),mt('lines/sets'),mo(')'),mo(';'),mt('Tag bits'),mo('='),mt('Address bits − Index − Offset')));
+    if(t.startsWith('Access time ≈')) return math(row(mt('Access time'),mo('≈'),mt('Seek'),mo('+'),mt('Average rotational latency'),mo('+'),mt('Transfer')));
+    if(t.startsWith('Avg latency =')) return math(row(mt('Average latency'),mo('='),frac(mn('1'),mn('2')),mt(' rotation = '),frac(mn('30'),mi('RPM')),mt(' seconds')));
+    if(t.startsWith('PA = Segment')) return math(row(mi('PA'),mo('='),mi('Segment'),mo('×'),mn('16'),mo('+'),mi('Offset')));
+    if(t.startsWith('N = Σ')) return math(row(mi('N'),mo('='),mo('Σ'),sub(mi('d'),'i'),mo('×'),sup(mi('r'),mi('i'))));
+    if(t.startsWith('Unsigned n-bit:')) return math(row(mt('Unsigned n-bit:'),mn('0'),mo('≤'),mi('X'),mo('≤'),sup(mn('2'),mi('n')),mo('−'),mn('1')));
+    if(t.startsWith('Signed 2’s comp:') || t.startsWith('Signed 2\'s comp:')) return math(row(mt('Signed two’s complement:'),mo('−'),sup(mn('2'),row(mi('n'),mo('−'),mn('1'))),mo('≤'),mi('X'),mo('≤'),sup(mn('2'),row(mi('n'),mo('−'),mn('1'))),mo('−'),mn('1')));
+    if(t.startsWith('Value =')) return math(row(mi('Value'),mo('='),sup(row(mo('−'),mn('1')),mi('S')),mo('×'),row(mn('1'),mo('.'),mi('F')),mo('×'),sup(mn('2'),row(mi('E'),mo('−'),mi('Bias')))));
+    if(t.startsWith('3.2 GHz')) return math(row(mn('3.2'),mt(' GHz'),mo('×'),mn('2'),mt(' transfers/clock'),mo('='),mn('6.4'),mt(' GT/s')));
+    if(t.startsWith('6.4 GT/s')) return math(row(mn('6.4'),mt(' GT/s'),mo('×'),mn('16'),mt(' bits'),mo('÷'),mn('8'),mo('='),mn('12.8'),mt(' GB/s/direction')));
+    if(t.startsWith('Bandwidth =')) return math(row(mt('Bandwidth'),mo('='),mt('transfers/second'),mo('×'),frac(mt('bits/transfer'),mn('8'))));
+    if(t.startsWith('Capacity =')) return math(row(mt('Capacity'),mo('='),mt('Number of words'),mo('×'),mt('Bits per word')));
+    if(t.startsWith('Physical address')) return math(row(mi('PA'),mo('='),mi('Segment'),mo('×'),mn('16'),mo('+'),mi('Offset')));
+    if(t.startsWith('Number of distinct addresses')) return math(row(mt('Number of distinct addresses'),mo('='),sup(mn('2'),mt('address lines'))));
+    if(t.startsWith('Rotational delay =')) return math(row(mt('Rotational delay'),mo('='),frac(mn('1'),row(mn('2'),mi('r'))),mt(' seconds')));
+    if(t.startsWith('Average rotational latency')) return math(row(sub(mi('T'),'rotation avg'),mo('='),frac(mn('30'),mi('RPM')),mt(' seconds')));
+    if(t.startsWith('AMAT =')) return math(row(mi('AMAT'),mo('='),mt('Hit time'),mo('+'),mt('Miss rate'),mo('×'),mt('Miss penalty')));
+    if(t.startsWith('Execution time =') || t.startsWith('Time =')) return `<span class="math-fallback">${escM(t).replace(/ = /g,' <b>=</b> ').replace(/ × /g,' <b>×</b> ')}</span>`;
+    if(t.startsWith('Stored exponent')) return math(row(mt('Stored exponent'),mo('E'),mo('='),mi('e'),mo('+'),mi('Bias')));
+    if(t.startsWith('−') || t.startsWith('-')) return `<span class="math-fallback">${escM(t)}</span>`;
+    // General equation fallback: keep the original formula, but display it in a proper equation panel.
+    return `<span class="math-fallback">${escM(t).replace(/×/g,' <b>×</b> ').replace(/→/g,' <b>→</b> ').replace(/ = /g,' <b>=</b> ')}</span>`;
+  }
+  function beautifyFormulaNodes(root=document){
+    root.querySelectorAll('.formula .math, .formula-line').forEach(el=>{
+      if(el.dataset.prettyDone==='1')return;
+      const raw=el.dataset.rawFormula||el.textContent.trim(); if(!raw)return;
+      el.dataset.rawFormula=raw; el.dataset.prettyDone='1'; el.classList.add('pretty-math');
+      el.innerHTML=formulaMarkup(raw);
+      el.setAttribute('role','math'); el.setAttribute('aria-label',raw);
+    });
+  }
+  function formulaCopyButton(){
+    document.querySelectorAll('.formula').forEach(card=>{
+      if(card.querySelector('.formula-copy'))return;
+      const first=card.querySelector('.math'); if(!first)return;
+      const b=document.createElement('button'); b.type='button'; b.className='formula-copy'; b.textContent='Copy';
+      b.addEventListener('click',()=>{const raw=[...card.querySelectorAll('.math')].map(x=>x.dataset.rawFormula||x.textContent).join('\n');
+        const ta=document.createElement('textarea');ta.value=raw;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');b.textContent='Copied';}catch(e){b.textContent='Select formula';}ta.remove();setTimeout(()=>b.textContent='Copy',1300);
+      });card.appendChild(b);
+    });
+  }
+
+  // Review mode uses the complete existing knowledge outline, so no lesson branch is silently omitted.
+  const reviewedKey='ktmt_knowledge_reviewed_01_09_v2';
+  function getReviewed(){try{return JSON.parse(localStorage.getItem(reviewedKey)||'{}')}catch(e){return {}}}
+  function saveReviewed(obj){try{localStorage.setItem(reviewedKey,JSON.stringify(obj));}catch(e){}updateReviewProgress();}
+  function updateReviewProgress(){const marks=getReviewed();const n=Object.values(marks).filter(Boolean).length;const el=document.getElementById('reviewDoneCount');if(el)el.textContent=n+'/9';}
+  function initKnowledgeReview(){
+    const source=document.getElementById('sessions'),host=document.getElementById('reviewTree');if(!source||!host||host.dataset.ready==='1')return;
+    host.dataset.ready='1';host.innerHTML='';
+    const marks=getReviewed();
+    [...source.querySelectorAll(':scope > details.session')].forEach((original,idx)=>{
+      const clone=original.cloneNode(true);clone.removeAttribute('open');
+      const n=Number(clone.querySelector('.badge-num')?.textContent?.trim()||idx+1);
+      clone.dataset.reviewSession=String(n);
+      // remove duplicate element IDs inside the cloned source branch
+      clone.querySelectorAll('[id]').forEach(x=>x.removeAttribute('id'));
+      const summary=clone.querySelector('summary');
+      if(summary){const badge=summary.querySelector('.badge-num');if(badge)badge.textContent='B'+String(n).padStart(2,'0');}
+      const body=clone.querySelector('.content');
+      const topics=body?[...body.querySelectorAll('h4')].map(x=>x.textContent.trim()).filter(Boolean):[];
+      const tools=document.createElement('div');tools.className='review-session-tools';
+      const topicList=document.createElement('div');topicList.className='review-topic-list';
+      topics.forEach(t=>{const pill=document.createElement('span');pill.textContent=t.replace(/^\d+\.\s*/,'');topicList.appendChild(pill);});
+      const label=document.createElement('label');label.className='review-done-check';
+      const cb=document.createElement('input');cb.type='checkbox';cb.checked=!!marks[n];cb.dataset.reviewMark=String(n);
+      cb.addEventListener('change',()=>{const next=getReviewed();next[n]=cb.checked;saveReviewed(next);});
+      const text=document.createElement('span');text.textContent='Đã ôn buổi này';label.append(cb,text);tools.append(topicList,label);
+      if(summary)summary.insertAdjacentElement('afterend',tools);else clone.prepend(tools);
+      host.appendChild(clone);
+    });
+    updateReviewProgress();
+    const search=document.getElementById('reviewSearch'),filter=document.getElementById('reviewSessionFilter');
+    function apply(){
+      const q=(search?.value||'').trim().toLocaleLowerCase('vi');const f=filter?.value||'all';
+      host.querySelectorAll('details.session').forEach(d=>{
+        const session=d.dataset.reviewSession;const matchesSession=f==='all'||f===session;
+        const matchesText=!q||d.textContent.toLocaleLowerCase('vi').includes(q);
+        d.hidden=!(matchesSession&&matchesText);
+        if(q&&matchesSession&&matchesText)d.open=true;
+      });
+    }
+    search?.addEventListener('input',apply);filter?.addEventListener('change',apply);
+    document.getElementById('reviewExpandAll')?.addEventListener('click',()=>host.querySelectorAll('details.session:not([hidden])').forEach(d=>d.open=true));
+    document.getElementById('reviewCollapseAll')?.addEventListener('click',()=>host.querySelectorAll('details.session').forEach(d=>d.open=false));
+    document.getElementById('reviewClearMarks')?.addEventListener('click',()=>{if(!confirm('Xóa toàn bộ dấu đã ôn lại Buổi 01–09?'))return;saveReviewed({});host.querySelectorAll('[data-review-mark]').forEach(cb=>cb.checked=false);});
+    document.querySelectorAll('.review-branch[data-jump-session]').forEach(b=>b.addEventListener('click',()=>{
+      const n=b.dataset.jumpSession;const sessions=n==='3'?[3,4]:n==='5'?[5,6,7]:[Number(n)];
+      if(filter)filter.value='all';if(search)search.value='';apply();
+      const first=host.querySelector(`details[data-review-session="${sessions[0]}"]`);if(first){first.open=true;first.scrollIntoView({behavior:'smooth',block:'start'});}
+    }));
+  }
+  // Beautify existing formula cards, generated worked examples, and course formula inserts.
+  beautifyFormulaNodes();formulaCopyButton();
+  initKnowledgeReview();
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+    if(t.dataset.tab==='formula'||t.dataset.tab==='course')setTimeout(()=>beautifyFormulaNodes(),60);
+    if(t.dataset.tab==='knowledgeReview')setTimeout(()=>initKnowledgeReview(),30);
+  }));
+  // Course theory may be rendered later; observe only newly inserted formula lines.
+  const courseHost=document.getElementById('courseLessons');
+  if(courseHost&&window.MutationObserver){new MutationObserver(()=>beautifyFormulaNodes(courseHost)).observe(courseHost,{childList:true,subtree:true});}
+})();
+</script>
+
 </body>
 </html>

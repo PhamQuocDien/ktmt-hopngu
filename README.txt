@@ -19,3 +19,8 @@ Buoi 01–09 / Chapter 00–05, based on the six source PDFs included in pdf_cha
 
 PROGRESS
 Course progress and practice settings are stored locally in the browser profile using localStorage. They do not automatically sync across different computers or browsers.
+
+UPGRADE · FORMULA RENDER + KNOWLEDGE REVIEW
+- Formula cards now render as visual MathML equations with copy buttons; works in modern Chrome/Edge without a MathJax dependency.
+- New “Duyệt sơ đồ kiến thức” tab provides Chapter branches, per-session expandable notes, search, session filters and reviewed checkmarks saved in local browser storage.
+- Original course, practice tests, language choice and source PDFs are retained.
