@@ -1,17 +1,32 @@
-KIEM DUYET PHUC HOI LEARNHUB KTMT
+KIỂM DUYỆT – LEARNHUB KTMT (HỒ SƠ NGƯỜI HỌC RIÊNG)
 
-- Một index.html duy nhất ở thư mục gốc: 1
-- Dashboard KTMT: courses/ktmt/ktmt.html
-- Lộ trình: 20 buổi, 15 buổi syllabus + 5 lab/tích hợp bổ trợ.
-- Tiến độ mặc định: 9/20 (45%), Buổi 01–09 hoàn thành.
-- Đề theo buổi: 45 (5 đề × 9 buổi); 10 câu/đề, bốn dạng câu hỏi.
-- Đề tổng hợp cuối khóa: 10; 20 câu/đề, bốn dạng câu hỏi.
-- Đề ôn giữa kỳ cá nhân: riêng scope Buổi 01–09 (20 câu).
-- Ngân hàng câu hỏi: 180 câu (12 câu/buổi × 15 buổi giáo trình, Chapter 00–08).
-- Nội dung map chi tiết giữ tại knowledge-map.html, A4 giữ mindmap-a4.html/pdf.
-- PDF giáo trình Chapter00–05: 6 tệp.
-- Duplicate IDs: []
-- Local link checks in dashboard: [('../../index.html', True), ('../../index.html', True), ('knowledge-map.html', True), ('mindmap-a4.html', True), ('mindmap-a4.pdf', True), ('knowledge-map.html', True), ('mindmap-a4.html', True), ('mindmap-a4.pdf', True)]
-- JavaScript source extracted to ktmt_portal_validate.js for node --check.
-- Progress and test history use localStorage only.
-- Important: this is a best-effort reconstruction of the lost course dashboard functionality; it does not recover an unavailable former exam file byte-for-byte. Question bank is reconstructed from the covered topics and saved course context.
+NGUYÊN TẮC TIẾN ĐỘ
+- Đã loại bỏ tiến độ mặc định 9/20 và các dòng code tự động gán hoàn thành Buổi 01–09.
+- Không suy ra đã học từ việc mở trang, đọc tài liệu, làm bài, đạt điểm test hay dùng tên người dùng.
+- Người học phải chọn/tạo hồ sơ riêng. Hồ sơ mới bắt đầu với progress={} và examHistory=[] (0/20, không có lịch sử).
+- Mỗi lần tải lại trang khóa học đều yêu cầu chọn hồ sơ; không tự động nạp hồ sơ cuối cùng, tránh người tiếp theo dùng chung trình duyệt bị gán nhầm hồ sơ.
+- Hồ sơ được lưu riêng trong localStorage bằng key learnhub_ktmt_profiles_v2; từng profile có progress và examHistory riêng.
+- Chỉ nút “Tôi xác nhận hoàn thành Buổi N” mới ghi nhận progress[N]=true. Mở buổi không ghi tiến độ.
+- Exam history và trạng thái review “Đã ôn” trên knowledge-map được namespace theo mã hồ sơ.
+- Không tự động migrate dữ liệu từ key cũ learnhub_ktmt_progress_v1 / learnhub_ktmt_exam_history_v1, vì không thể biết dữ liệu đó thuộc về người nào.
+
+GIỚI HẠN CẦN CÔNG KHAI
+- Đây là profile separation ở mức trình duyệt (localStorage), không phải hệ thống tài khoản có xác thực server, không có PIN/backend và không đồng bộ đám mây.
+- Người dùng khác trên cùng máy cần chọn đúng hồ sơ của mình; nếu cần bảo mật tài khoản thật sự cho website công khai, cần thêm backend và authentication riêng.
+- Trình duyệt/máy khác nhau sẽ có kho dữ liệu localStorage riêng.
+
+GIỮ NGUYÊN CHỨC NĂNG KHÓA HỌC
+- 20 buổi roadmap và cơ chế mở khóa tuần tự.
+- Lesson view: mục tiêu, lý thuyết, worked example, practice, pitfalls, checklist, Mini Test và xác nhận hoàn thành thủ công.
+- Exam Center: 45 đề theo buổi, 10 đề tổng hợp, midterm review; lịch sử bài làm tách theo profile.
+- Knowledge map dạng cây, A4 PDF 2 trang ngang, và 6 PDF Chapter00–05.
+- Tiếp tục duy trì một index.html duy nhất ở thư mục gốc.
+
+KIỂM TRA TĨNH
+- JavaScript syntax checked.
+- HTML parse and duplicate ID check.
+- Không còn auto-seed 9/20 hoặc dùng localStorage global keys cũ.
+- Profile start state checked: progress={}, examHistory=[]; first unlocked lesson resolves to Buổi 01.
+- Profile history and mindmap review keys scoped by profile ID.
+- Local link checks, ZIP integrity and count of index.html checked after packaging.
+- Browser UI automation unavailable in this environment; visual click-through not claimed.
