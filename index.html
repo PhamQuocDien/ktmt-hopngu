@@ -59,6 +59,11 @@
 @media(max-width:1000px){.exam-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.course-dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.exam-grid{grid-template-columns:1fr}.unit-body{padding:0 12px 14px}.course-unit summary{padding:12px}.unit-status{display:none}}
 
+
+.language-setup{border:1px solid #3b587b;background:linear-gradient(145deg,#101d31,#121a2b);padding:18px;border-radius:16px;margin-top:12px}
+.language-setup-head{display:flex;gap:12px;align-items:center;margin-bottom:14px}.language-icon{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:12px;background:#163e57;color:#8be4ef;font-weight:900;font-size:20px}.language-setup-head h3{margin:0 0 3px}.language-setup-head p{margin:0;color:#9fb1c9;font-size:12px}
+.language-choice{display:flex;gap:11px;align-items:center;border:1px solid #354d6d;background:#0d1728;padding:13px;border-radius:12px;margin:9px 0;cursor:pointer}.language-choice.selected{border-color:#55d6e8;background:rgba(35,116,145,.18);box-shadow:0 0 0 1px rgba(85,214,232,.12)}.language-choice input{accent-color:#55d6e8;flex:0 0 auto}.language-choice-copy{display:flex;flex-direction:column;gap:3px;flex:1}.language-choice-copy b{color:#f3f8ff}.language-choice-copy small{font-size:12px;color:#9fb4d0;line-height:1.4}.language-tag{font-size:10px;color:#88ddeb;border:1px solid #34566d;border-radius:99px;padding:4px 8px;white-space:nowrap}.language-review-note{font-size:12px;color:#c4d4e6;border-left:3px solid #d7b66d;background:rgba(215,182,109,.07);padding:9px 11px;margin:12px 0;border-radius:0 8px 8px 0}.language-start{background:linear-gradient(120deg,#167d98,#3156a5)!important;border-color:#55c3d9!important}.exam-language-indicator{font-size:11px;color:#9bb6d1;margin-top:5px}.exam-language-indicator b{color:#80d9e7}.subtitle-visible{display:block!important}.match-vi{font-size:11px;color:#9db4d1;margin-top:3px}.drag-chip .option-vi{font-weight:400;white-space:normal}
+
 </style>
 </head>
 <body>
@@ -792,7 +797,7 @@ function renderCourse(){
   <div class="unit-body"><div class="unit-tabs"><button class="active" onclick="switchUnitTab(${n},'theory',this)">1 · Lý thuyết</button><button onclick="switchUnitTab(${n},'practice',this)">2 · Bài thực hành</button><button onclick="switchUnitTab(${n},'test',this)">3 · Mini Test</button></div>
   <div class="unit-pane active" id="unit-${n}-theory"><h3>Lý thuyết buổi ${String(n).padStart(2,'0')}</h3>${theory}<label class="course-check"><input type="checkbox" ${p.theory?'checked':''} onchange="setCourseStage(${n},'theory',this.checked)"> Tôi đã học và xem lại phần lý thuyết này</label></div>
   <div class="unit-pane" id="unit-${n}-practice"><h3>${esc(task.title)}</h3><div class="unit-practice"><b>Đề bài thực hành tích hợp</b><br>${esc(task.task)}</div><p><b>Sản phẩm cần nộp:</b> ${esc(task.deliver)}</p><label class="course-check"><input type="checkbox" ${p.practice?'checked':''} onchange="setCourseStage(${n},'practice',this.checked)"> Tôi đã hoàn thành bài thực hành này</label><p class="doc-meta">Có thể thực hiện trên giấy hoặc dùng VS Code/Ubuntu WSL khi nội dung yêu cầu.</p></div>
-  <div class="unit-pane" id="unit-${n}-test"><h3>Mini Test Buổi ${String(n).padStart(2,'0')}</h3><p>10 câu · 20 điểm · 35 phút gợi ý. Câu hỏi bằng tiếng Anh, có dịch tiếng Việt và giải thích từng phương án sau khi nộp.</p><p>${p.testScore!==null?`Điểm lần xem lại gần nhất: <b>${Number(p.testScore).toFixed(2)}/20</b>`:'Bạn chưa hoàn thành phần Mini Test của buổi này.'}</p><button class="course-btn" onclick="startCourseMiniTest(${n})">${p.testScore!==null?'Làm lại Mini Test':'Bắt đầu Mini Test'} ↗</button><p class="doc-meta">Ngoài Mini Test này, bạn có thể luyện thêm 4 đề còn lại tại mục “55 đề thi thử”.</p></div>
+  <div class="unit-pane" id="unit-${n}-test"><h3>Mini Test Buổi ${String(n).padStart(2,'0')}</h3><p>10 câu · 20 điểm · 35 phút gợi ý. Trước khi làm, bạn chọn English only (không phụ đề) hoặc English + Vietnamese subtitles (có phụ đề). Sau khi nộp, phần xem lại có bản dịch và giải thích.</p><p>${p.testScore!==null?`Điểm lần xem lại gần nhất: <b>${Number(p.testScore).toFixed(2)}/20</b>`:'Bạn chưa hoàn thành phần Mini Test của buổi này.'}</p><button class="course-btn" onclick="startCourseMiniTest(${n})">${p.testScore!==null?'Làm lại Mini Test':'Bắt đầu Mini Test'} ↗</button><p class="doc-meta">Ngoài Mini Test này, bạn có thể luyện thêm 4 đề còn lại tại mục “55 đề thi thử”.</p></div>
   <div class="unit-actions"><a class="pdf-link" href="${(d.querySelector('.session-head small a')?.getAttribute('href')||'#')}" target="_blank" rel="noopener">▣ Mở PDF chương</a><button class="confirm-course" onclick="confirmCourseComplete(${n})" ${p.completed?'disabled':''}>${p.completed?'Đã xác nhận hoàn thành':'Xác nhận hoàn thành buổi'}</button></div>
   <div class="doc-meta">Chỉ xác nhận sau khi đã học lý thuyết, làm thực hành, nộp và xem lại Mini Test. Hệ thống không tự đánh dấu hoàn thành.</div></div></details>`;
  }).join('');
@@ -833,6 +838,63 @@ function renderReview(auto){
  examPanel.innerHTML=out;
 }
 function revealExamScore(){const el=document.getElementById('examScore');if(el)el.classList.add('show');if(submittedReview&&activeExam!==null){examResults[activeExam]=submittedReview.total;try{localStorage.setItem(EXAM_RESULTS_KEY,JSON.stringify(examResults));}catch(e){}const ex=MOCK_EXAMS[activeExam];if(ex.scope==='session'){const p=cp(ex.sessionNo);p.testScore=submittedReview.total;saveCourseProgress();}renderExamList();}}
+
+
+/* Exam language-mode upgrade: English-only simulation or English + Vietnamese subtitles. */
+let examSubtitleMode = 'off';
+let examPreferredMode = 'off';
+try { examPreferredMode = localStorage.getItem('ktmt_exam_language_mode_v1') || 'off'; } catch(e) {}
+function startExam(i){
+  clearInterval(examTimer);
+  activeExam=i; submittedReview=null; examSeconds=35*60;
+  const ex=MOCK_EXAMS[i];
+  examPanel.hidden=false;
+  const mode=examPreferredMode==='on'?'on':'off';
+  examPanel.innerHTML=`<div class="exam-top"><div><div class="q-meta">EXAM SETUP · ${ex.scope==='session'?'SESSION '+String(ex.sessionNo).padStart(2,'0')+' · FORM '+ex.formNo:'OVERALL FORM '+String(ex.formNo).padStart(2,'0')}</div><h3>${esc(ex.title)}</h3><div class="doc-meta">${esc(ex.subtitle)} · 10 QUESTIONS · 20 POINTS · 35 MINUTES</div></div></div>
+  <section class="language-setup"><div class="language-setup-head"><span class="language-icon">文</span><div><h3>Chọn ngôn ngữ hiển thị khi làm bài</h3><p>Chọn chế độ phù hợp với mục tiêu luyện tập của bạn. Có thể chọn lại trước mỗi đề.</p></div></div>
+  <label class="language-choice ${mode==='off'?'selected':''}" for="examModeOff"><input id="examModeOff" type="radio" name="examLanguageMode" value="off" ${mode==='off'?'checked':''} onchange="selectExamMode('off')"><span class="language-choice-copy"><b>English only · Không phụ đề</b><small>Chỉ hiển thị câu hỏi, lựa chọn và hướng dẫn bằng tiếng Anh — mô phỏng bài thi thật.</small></span><span class="language-tag">Exam simulation</span></label>
+  <label class="language-choice ${mode==='on'?'selected':''}" for="examModeOn"><input id="examModeOn" type="radio" name="examLanguageMode" value="on" ${mode==='on'?'checked':''} onchange="selectExamMode('on')"><span class="language-choice-copy"><b>English + Vietnamese subtitles · Có phụ đề</b><small>Giữ nguyên câu hỏi và đáp án tiếng Anh, hiển thị bản dịch tiếng Việt ngay bên dưới để hỗ trợ học.</small></span><span class="language-tag">Study mode</span></label>
+  <div class="language-review-note"><b>Lưu ý:</b> Sau khi nộp bài, phần xem lại vẫn có bản dịch và giải thích tiếng Việt để bạn học từ lỗi sai. Chế độ không phụ đề chỉ áp dụng trong thời gian làm đề.</div>
+  <div class="exam-actions"><button type="button" class="language-start" onclick="beginSelectedExam()">Bắt đầu làm bài / Start exam ↗</button><button type="button" onclick="closeExam()">Quay lại danh sách đề</button></div></section>`;
+  examPanel.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function selectExamMode(mode){
+  examPreferredMode=mode==='on'?'on':'off';
+  examPanel.querySelectorAll('.language-choice').forEach(el=>el.classList.remove('selected'));
+  const radio=examPanel.querySelector(`input[name="examLanguageMode"][value="${examPreferredMode}"]`);
+  if(radio){radio.checked=true;radio.closest('.language-choice')?.classList.add('selected');}
+}
+function beginSelectedExam(){
+  const selected=examPanel.querySelector('input[name="examLanguageMode"]:checked');
+  examSubtitleMode=selected?.value==='on'?'on':'off';
+  examPreferredMode=examSubtitleMode;
+  try{localStorage.setItem('ktmt_exam_language_mode_v1',examSubtitleMode);}catch(e){}
+  examSeconds=35*60;
+  renderExamForm();
+  clearInterval(examTimer);
+  examTimer=setInterval(()=>{examSeconds--;const el=document.getElementById('examClock');if(el)el.textContent=clockText(examSeconds);if(examSeconds<=0){clearInterval(examTimer);submitActiveExam(true);}},1000);
+}
+function renderExamForm(){
+ const ex=MOCK_EXAMS[activeExam];
+ const withVi=examSubtitleMode==='on';
+ let out=`<div class="exam-top"><div><div class="q-meta">${ex.scope==='session'?'SESSION '+String(ex.sessionNo).padStart(2,'0')+' · PRACTICE TEST '+ex.formNo:'OVERALL MOCK EXAM '+String(ex.formNo).padStart(2,'0')} / 10</div><h3>${ex.scope==='session'?'Session '+String(ex.sessionNo).padStart(2,'0')+' · Practice Test '+ex.formNo:'Overall Mock Exam '+ex.formNo}</h3><div class="doc-meta">10 QUESTIONS · 20 POINTS · 35 MINUTES</div><div class="exam-language-indicator">Language: <b>${withVi?'English + Vietnamese subtitles':'English only · No subtitles'}</b></div></div><div class="exam-progress">Time: <span id="examClock">${clockText(examSeconds)}</span></div></div><form id="examForm">`;
+ ex.questions.forEach((q,qi)=>{
+  out+=`<section class="question" data-question="${qi}"><div class="q-meta">QUESTION ${qi+1} · ${typeLabel(q.type)} · 2 POINTS</div><h4>${esc(q.stem)}</h4>${withVi?`<p class="translation subtitle-visible">${esc(q.vi)}</p>`:''}`;
+  if(q.type==='single'||q.type==='multi'){
+   q.options.forEach((o,oi)=>{out+=`<label class="option-row"><input type="${q.type==='single'?'radio':'checkbox'}" name="q${qi}" value="${oi}"><span><b>${String.fromCharCode(65+oi)}.</b> ${esc(o.text)}${withVi?`<small class="option-vi subtitle-visible">${esc(o.vi)}</small>`:''}</span></label>`;});
+  }else if(q.type==='tf'){
+   out+=`<label class="option-row"><input type="radio" name="q${qi}" value="true"><span>True${withVi?'<small class="option-vi subtitle-visible">Đúng</small>':''}</span></label><label class="option-row"><input type="radio" name="q${qi}" value="false"><span>False${withVi?'<small class="option-vi subtitle-visible">Sai</small>':''}</span></label>`;
+  }else if(q.type==='short'){
+   out+=`<input class="answer-input" name="q${qi}" placeholder="Type your answer..." autocomplete="off">${withVi?'<small class="option-vi subtitle-visible">Nhập câu trả lời của bạn.</small>':''}`;
+  }else if(q.type==='match'){
+   const vals=q.pairs.map(p=>p.right);
+   out+=`<div class="match-area">${q.pairs.map((pair,pi)=>`<div class="match-left">${esc(pair.left)}${withVi?`<div class="subtitle-visible match-vi">${esc(pair.leftVi||'')}</div>`:''}</div><div><div class="dropzone" data-q="${qi}" data-p="${pi}" ondragover="event.preventDefault()" ondrop="dropMatch(event,${qi},${pi})">Drop answer here</div><select class="match-select" name="q${qi}_${pi}" onchange="syncMatchSelect(this,${qi},${pi})"><option value="">-- Select match --</option>${vals.map((v,vi)=>`<option value="${esc(v)}">${esc(v)}${withVi&&q.pairs[vi].rightVi?' · '+esc(q.pairs[vi].rightVi):''}</option>`).join('')}</select></div>`).join('')}</div><div class="doc-meta">Drag a label into a box, or use the dropdown list.</div><div class="match-bank">${vals.map((v,pi)=>`<button type="button" class="drag-chip" draggable="true" ondragstart="dragMatch(event,${qi},${pi})">${esc(v)}${withVi&&q.pairs[pi].rightVi?`<small class="option-vi subtitle-visible">${esc(q.pairs[pi].rightVi)}</small>`:''}</button>`).join('')}</div>`;
+  }
+  out+='</section>';
+ });
+ out+=`<div class="exam-actions"><button type="button" onclick="submitActiveExam(false)">Submit answers</button><button type="button" onclick="closeExam()">Exit exam</button></div></form><div class="source-note">Unanswered questions receive 0 points. Your total score is revealed only after reviewing all 10 questions.</div>`;
+ examPanel.innerHTML=out;
+}
 
 // Build course interface from the verified theory blocks already present in each session card.
 renderCourse();
