@@ -1,23 +1,15 @@
-LEARNHUB – CẤU TRÚC NHIỀU KHÓA HỌC
+LEARNHUB – KTMT HCMUTE
 
-MỞ
-1. Giải nén toàn bộ gói ZIP.
-2. Mở index.html ở thư mục gốc bằng Chrome hoặc Edge.
-3. Chọn khóa học trong Danh mục khóa học. Hiện tại chỉ có KTMT được triển khai.
+Mở index.html ở thư mục gốc để vào trang chủ LearnHub.
+Chọn khóa Kiến trúc máy tính và Hợp ngữ để vào dashboard khóa học.
 
-CẤU TRÚC
-index.html                         Trang chủ / danh mục khóa học
-courses/ktmt/ktmt.html            Trang hiện tại của khóa KTMT
-courses/ktmt/mindmap-data.json      Dữ liệu sơ đồ kiến thức
-courses/ktmt/pdf_chapters/          Sáu PDF Chapter 00–05
+KTMT: courses/ktmt/ktmt.html
+- Tổng quan, tiến độ 9/20, lộ trình 20 buổi
+- 45 đề tự luyện theo buổi (5 đề/buổi × Buổi 01–09)
+- 10 đề tổng hợp cuối khóa
+- Ôn giữa kỳ riêng phạm vi Buổi 01–09
+- Bài tập, Mini Test, sơ đồ chi tiết và bản A4 hai trang
+- 6 PDF Chapter00–05
 
-MỞ RỘNG THÊM MÔN HỌC (VỀ SAU)
-1. Tạo thư mục courses/<slug-khoa-hoc>/.
-2. Đặt trang môn học tại courses/<slug-khoa-hoc>/course.html.
-3. Thêm một thẻ khóa học và một record vào mảng courses trong script của index.html gốc.
-4. Giữ tài nguyên, CSS/JS và khóa localStorage riêng trong thư mục/namespace của khóa học đó.
-
-Mỗi khóa học nên quản lý tiến độ, tài liệu, bài tập và dữ liệu riêng; trang chủ chỉ làm nhiệm vụ điều hướng/catalog.
-
-KHÓA HIỆN CÓ
-- Kiến trúc máy tính và Hợp ngữ HCMUTE: 9/20 buổi (45%), phạm vi sơ đồ hiện tại Buổi 01–09.
+Ghi chú: tiến độ và lịch sử bài làm được lưu trên trình duyệt (localStorage), chưa đồng bộ thiết bị.
+Các buổi 01–15 bám cấu trúc giáo trình; Buổi 16–20 là phần lab/tích hợp bổ trợ được tách nhãn rõ ràng.
