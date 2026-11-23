@@ -1,26 +1,23 @@
-KTMT MIDTERM REVIEW PACK – FORMULA, WORKED EXAMPLES & PRACTICE UPGRADE
+LEARNHUB – CẤU TRÚC NHIỀU KHÓA HỌC
 
-OPENING
-1. Extract the entire ZIP folder to one location.
-2. Open index.html in Chrome or Microsoft Edge.
-3. Keep pdf_chapters/ beside index.html so the Chapter PDF links work.
+MỞ
+1. Giải nén toàn bộ gói ZIP.
+2. Mở index.html ở thư mục gốc bằng Chrome hoặc Edge.
+3. Chọn khóa học trong Danh mục khóa học. Hiện tại chỉ có KTMT được triển khai.
 
-WHAT WAS ADDED
-- Each Buoi 01–09 course theory section now has a Formula & Worked Example block.
-- Formula tab includes worked examples by session with substitutions, units and interpretation.
-- Practice tab contains 69 session exercises and 18 mixed exercises (87 total).
-- Exercises are grouped by session/topic and can be filtered by Single Choice, Multiple Select, True/False, Short Answer/Calculation, and Matching.
-- Practice questions are written in English; choose English-only or English + Vietnamese subtitles before practicing.
-- Every exercise can be checked with feedback, explanation and calculation steps; matching/multiple-select scoring is partial where appropriate.
-- Existing 55 mock exams, course lessons, mindmap, A4 PDFs and Chapter 00–05 reference PDFs are retained.
+CẤU TRÚC
+index.html                         Trang chủ / danh mục khóa học
+courses/ktmt/ktmt.html            Trang hiện tại của khóa KTMT
+courses/ktmt/mindmap-data.json      Dữ liệu sơ đồ kiến thức
+courses/ktmt/pdf_chapters/          Sáu PDF Chapter 00–05
 
-SCOPE AND SOURCE NOTES
-Buoi 01–09 / Chapter 00–05, based on the six source PDFs included in pdf_chapters/. Where a teaching aid extends beyond the explicit slide formula (for example, the general AMAT model or simplified bus-bandwidth calculations), it is labelled as a supplementary model/idealized calculation.
+MỞ RỘNG THÊM MÔN HỌC (VỀ SAU)
+1. Tạo thư mục courses/<slug-khoa-hoc>/.
+2. Đặt trang môn học tại courses/<slug-khoa-hoc>/course.html.
+3. Thêm một thẻ khóa học và một record vào mảng courses trong script của index.html gốc.
+4. Giữ tài nguyên, CSS/JS và khóa localStorage riêng trong thư mục/namespace của khóa học đó.
 
-PROGRESS
-Course progress and practice settings are stored locally in the browser profile using localStorage. They do not automatically sync across different computers or browsers.
+Mỗi khóa học nên quản lý tiến độ, tài liệu, bài tập và dữ liệu riêng; trang chủ chỉ làm nhiệm vụ điều hướng/catalog.
 
-UPGRADE · FORMULA RENDER + KNOWLEDGE REVIEW
-- Formula cards now render as visual MathML equations with copy buttons; works in modern Chrome/Edge without a MathJax dependency.
-- New “Duyệt sơ đồ kiến thức” tab provides Chapter branches, per-session expandable notes, search, session filters and reviewed checkmarks saved in local browser storage.
-- Original course, practice tests, language choice and source PDFs are retained.
+KHÓA HIỆN CÓ
+- Kiến trúc máy tính và Hợp ngữ HCMUTE: 9/20 buổi (45%), phạm vi sơ đồ hiện tại Buổi 01–09.

@@ -1,0 +1,22 @@
+KIỂM DUYỆT TĨNH – BẢN LEARNHUB KTMT
+
+- PDF nguồn: 6 (Chapter00–Chapter05).
+- Số buổi trong sơ đồ: 9.
+- Số nhóm kiến thức: 73.
+- Số mục kiến thức: 377.
+- Phân loại mục: {'pdf': 282, 'supplement': 86, 'lab': 9}.
+- GDB/WSL/NASM đã chuyển khỏi nhãn PDF sang LAB.
+- HTML hoạt động bằng dữ liệu nhúng; không phụ thuộc fetch JSON từ file://.
+- mindmap-data.json đã đồng bộ với MAP nhúng trong HTML.
+- Tiến độ trong giao diện khóa học: 9/20 (45%); không tự thay đổi trạng thái hoàn thành.
+
+KIỂM TRA CẤU TRÚC
+- Chỉ có một file index.html duy nhất ở thư mục gốc; trang KTMT dùng tên ktmt.html.
+- Trang khóa học riêng ở courses/ktmt/ktmt.html.
+- Liên kết từ trang chủ đến KTMT và liên kết quay về trang chủ đã được tạo.
+- Sáu PDF được liên kết trực tiếp từ trang khóa học và có mặt trong ZIP.
+- Kiểm tra cú pháp JavaScript, duplicate IDs, integrity ZIP và đường dẫn nội bộ được chạy khi build.
+
+GIỚI HẠN
+- Đây là kiểm tra tĩnh, chưa xác nhận tương tác bằng trình duyệt đồ họa do môi trường kiểm thử trình duyệt bị chặn.
+- localStorage chỉ lưu cục bộ trên trình duyệt/thiết bị.
