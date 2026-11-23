@@ -1,0 +1,13 @@
+KIỂM DUYỆT – LEARNHUB KTMT (SIMPLIFIED KNOWLEDGE MAP)
+
+- Giữ nguyên dashboard/lộ trình 20 buổi, Mini Test, ngân hàng 45 đề theo buổi + 10 đề tổng hợp, hồ sơ người học và tiến độ riêng.
+- Chỉ thay cách trình bày trang knowledge-map.html.
+- Sơ đồ hiển thị dạng cây tĩnh gọn: chọn 1 trong 9 buổi là toàn bộ các nhánh của buổi hiện ra ngay; không còn phải bung từng nhóm hoặc từng node.
+- Bỏ các bộ lọc dạng dropdown, nút mở tất cả/thu gọn/đặt lại và checkbox đã ôn khỏi trang sơ đồ để giảm thao tác.
+- Có một ô tìm kiếm nhanh toàn bộ 9 buổi; kết quả hiển thị theo buổi và chủ đề.
+- Giữ 9 buổi, 73 nhóm và 377 mục nguyên vẹn từ mindmap-data.json.
+- Link PDF A4 hai trang và 6 PDF gốc được giữ dưới dạng nút/khối tài liệu gọn.
+- Trang sơ đồ không hiển thị tiến độ 9/20 cố định và không lưu trạng thái học chung.
+- Một index.html duy nhất ở thư mục gốc.
+- Kiểm tra: HTML parser, JS syntax, số mục JSON, link cục bộ, PDF và ZIP integrity.
+- Chưa xác nhận visual trên production; cần upload/deploy gói này lên OnRender để áp dụng thay đổi.

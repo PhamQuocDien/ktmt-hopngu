@@ -30,3 +30,10 @@ KIỂM TRA TĨNH
 - Profile history and mindmap review keys scoped by profile ID.
 - Local link checks, ZIP integrity and count of index.html checked after packaging.
 - Browser UI automation unavailable in this environment; visual click-through not claimed.
+
+CAP NHAT GIAO DIEN SO DO – BAN GON MOT LAN CHON
+- knowledge-map.html đã chuyển sang giao diện 9 nút chọn buổi; chọn một lần để hiển thị toàn bộ các nhóm chủ đề và ghi chú của buổi.
+- Không còn phải mở từng nhóm/chủ đề con; bỏ dropdown lọc kép, nút mở/thu gọn tất cả và checkbox đã ôn gây nhiều thao tác.
+- Giữ 377 mục kiến thức, 73 nhóm; ô tìm kiếm duy nhất tra trên tất cả 9 buổi.
+- Không hiển thị tiến độ 9/20 cố định trên trang sơ đồ; không ghi trạng thái tiến độ người học tại đây.
+- Bản đồ A4 PDF, trang dashboard, lộ trình và đề tự luyện không bị thay đổi.
